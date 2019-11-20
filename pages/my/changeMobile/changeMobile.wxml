@@ -1,0 +1,17 @@
+<view class='item-content' style="flex-direction: row;">
+  <view class='item-left'>手机号</view>
+  <view class='item-right'>
+      <input placeholder='输入手机号' bindinput="fillMobile" maxlength="11" disabled='{{disableComp}}'></input>
+  </view>
+</view>
+<view class='item-content' style="flex-direction: row;">
+  <view class='item-left'>验证码</view>
+  <view class='item-right2'> 
+      <input value="{{sms}}" type="number" bindinput="fillSms"  placeholder='输入验证码' maxlength="4" class="sub-input"></input>
+      <button type="primary" class='sub-btn' catchtap='sendSms' disabled='{{disableComp}}'>{{smsTxt}}</button>
+  </view>
+</view>
+
+ <view class='btn-content'>
+  <button type="primary" class='btn-primary' bindtap='save'>确认变更</button>
+</view>

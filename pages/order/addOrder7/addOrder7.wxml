@@ -1,0 +1,13 @@
+<view class='item-content'>
+  <image src='../../../images/order/success.png' class='success-img'></image>
+  <view class='title'>订单发布成功</view>
+  <view class='desc'>
+    想在第一时间收到师傅报价，长按二维码识别关注 或在微信公众号中搜索
+    <text>【左右手安装】</text>
+  </view>
+  <image src='../../../images/order/qrcode.png' class='qrcode-img'></image>
+</view>
+<cover-view class='bottom-btn'>
+  <button type="primary" class='sub-left-btn' bindtap='goDetail'>查看订单详情</button>
+  <button type="primary" class='sub-right-btn' bindtap='goAddOrder'>继续下单</button>
+</cover-view>

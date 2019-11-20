@@ -1,0 +1,106 @@
+<view class='content-item' wx:for="{{items}}" wx:key="{{fmasterid}}">
+  <view class='first-item'>
+    <view class='left-item'>
+      <image src='{{item.fimageurl.length!=0?item.fimageurl:"../../../images/my/user.png"}}'></image>
+    </view>
+    <view class='center-item'>
+      <view class='item1'>
+        <text class="name">{{item.fname}}</text>
+       <view class="jb" wx:if="{{item.fgrade=='margingrade_01'}}"><image src="../../../images/order/level.png"></image><text>0级</text> </view>
+        <view class="jb" wx:if="{{item.fgrade=='margingrade_02'}}"><image src="../../../images/order/level.png"></image><text>初级</text></view>
+        <view class="jb" wx:if="{{item.fgrade=='margingrade_03'}}"><image src="../../../images/order/level.png"></image><text>中级</text></view>
+        <view class="jb" wx:if="{{item.fgrade=='margingrade_04'}}"><image src="../../../images/order/level.png"></image><text>高级</text></view>
+        <view class="bzj" wx:if="{{item.fmarginamount >0 }}"><image src="../../../images/order/hup.png"></image><text>保证金{{item.fmarginamount}}</text></view>
+        <view class="bzj no" wx:if="{{item.fmarginamount == 0}}"><image src="../../../images/order/nohup.png"></image><text>未缴保证金</text></view>
+        <text class='money' wx:if="{{foffertype!='offer_type_01'}}">报价: ¥{{item.fquotationamount}}</text>
+      </view>
+      <view class='item2'>
+        <text>综合评价</text>
+        <label class="split">{{item.overallScore}}分</label>
+        <text>服务单数</text>
+        <label class="split">{{item.orderCount}}</label>
+        <text>好评率</text>
+        <label>{{item.applauseRate}}%</label>
+      </view>
+    </view>
+  </view>
+  <view class='second-item'>
+    <view class='item' wx:if="{{item.fdescription && item.fdescription != ''}}">
+      <view class='left-item'>师傅留言：</view>
+      <view class='right-item'> {{item.fdescription}}</view>
+    </view>
+    <view class='item'>
+      <view class='left-item'>服务承诺：</view>
+      <view class='right-item'>
+        <icon class='iconfont icon-iconcorrect {{item.fispledge?"selected":""}}'></icon>空跑费{{item.femptyrunfee}}元
+        <icon class='iconfont icon-iconcorrect {{item.fispledge?"selected":""}}'></icon>免费售后{{item.faftersale}}月
+        <icon class='iconfont icon-iconcorrect {{item.fispledge?"selected":""}}'></icon>免费上{{item.ffeeupstairs}}楼
+      </view>
+    </view>
+  </view>
+  <view class='thrid-item'> 
+    <button type="primary" class='sub-left-btn' bindtap='showRule' wx:if="{{foffertype!='offer_type_01'}}" data-id='{{item.fid}}'>查看抢单详情</button>
+  </view>
+</view>
+
+<view class="mask {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
+  <view class='maskContent'>
+    <view class='title'>
+      抢单详情
+      <icon class='iconfont icon-iconfontguanbi ruleHide' bindtap='hideRule'></icon>
+    </view>
+    <view class='content'>
+      <view class='header'>
+        <text>类型</text>
+        <text style='width:20%;'>数量</text>
+        <text style='width:30%;'>抢单</text>
+        <text>金额</text>
+      </view>
+      <scroll-view scroll-y style="height: 120px;">
+        <view class='info' wx:for="{{fserviceentry}}" wx:key="fid" wx:if="{{item.fseritemidName!=null}}">
+          <text>{{item.fseritemidName}}</text>
+          <text style='width:20%;'>x{{item.fqty}}</text>
+          <text style='width:30%;'>{{item.fprice}}元{{item.funitName?'/'+item.funitName:''}}</text>
+          <text class='red'>¥{{item.fqty*item.fprice}}</text>
+        </view> 
+        <view class='info' wx:if="{{ffreightamount>0}}">
+          <text>物流费</text>
+          <text style='width:20%;'>x1</text>
+          <text style='width:30%;'>{{ffreightamount}}元</text>
+          <text class='red'>¥{{ffreightamount}}</text>
+        </view>
+        <view class='info' wx:if="{{fhandlingamount>0}}">
+          <text>搬运费</text>
+          <text style='width:20%;'>x1</text>
+          <text style='width:30%;'>{{fhandlingamount}}元</text>
+          <text class='red'>¥{{fhandlingamount}}</text>
+        </view>
+        <view class='info' wx:if="{{fliftbuildamount>0}}">
+          <text>抬楼费</text>
+          <text style='width:20%;'>x1</text>
+          <text style='width:30%;'>{{fliftbuildamount}}元</text>
+          <text class='red'>¥{{fliftbuildamount}}</text>
+        </view>
+        <view class='info' wx:if="{{fshippingamount>0}}">
+          <text>代付运费</text>
+          <text style='width:20%;'>x1</text>
+          <text style='width:30%;'>{{fshippingamount}}元</text>
+          <text class='red'>¥{{fshippingamount}}</text>
+        </view>
+      </scroll-view>
+      <view class='total'>合计:
+        <label>¥{{fquotationamount}}</label>
+      </view>
+      <view class='detail'>
+        <view>
+          抢单有效期：
+          <text>{{fvaliditydate}}天</text>
+        </view>
+        <view wx:if="{{ffastestdate && ffastestdate.length>0}}">
+          最快出发时间：
+          <text>{{ffastestdate}}</text>
+        </view>
+      </view> 
+    </view>
+  </view>
+</view>

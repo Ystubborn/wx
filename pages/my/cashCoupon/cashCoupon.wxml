@@ -1,0 +1,31 @@
+<view class="home-wrap">
+  <!-- 导航 -->
+  <view class="top_nav">
+    <view class="nav-name {{item.typeId == currentId ? 'nav-hover':''}}" wx:for="{{section}}" wx:key="id" data-id='{{item.typeId}}' catchtap='handleTap'> {{item.name}} </view>
+  </view>
+  <view class='order-item' wx:for="{{items}}" wx:key="fentryid" data-id='{{item.fentryid}}'>
+    <view class="center-content">
+      <view class="left {{currentId==0?'yes':'no'}} ">¥{{item.fcashamount}}</view>
+      <view class="center">
+        <view class="first">{{item.fname}}</view>
+        <view class="second">有效期：{{item.fenddate}}</view>
+      </view>
+      <image src="{{currentId==1?'../../../images/my/coupon1.png':(currentId==2?'../../../images/my/coupon2.png':'')}}"></image>
+    </view>
+    <view class="bottom-content">
+      <view class="left" bindtap="showDesc" data-desc="{{item.fdescription}}">使用规则
+        <icon class="iconfont icon-xiajiantou"></icon>
+      </view>
+      <view class="right">
+        <button class="btn-primary" type="primary" bindtap="goOrderCenter" wx:if="{{currentId==0}}">去使用</button> 
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{nomoredata}}" class='no-more-data'>
+    没有更多了!
+  </view>
+  <view wx:if="{{nodata}}" class='no-data'>
+    <image src="../../../images/order/noCoupon.png"></image>
+    <view>暂无更多现金券</view>
+  </view>
+</view>

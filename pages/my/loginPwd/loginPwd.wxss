@@ -1,0 +1,47 @@
+.item-content {
+  background-color: #fff;
+  padding: 20rpx 30rpx 20rpx 20rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.item-content.split {
+  margin-bottom: 25rpx;
+}
+
+.item-content .item-left {
+  width: 25%;
+  color: #666;
+  font-size: 16px;
+}
+
+.item-content .item-right {
+  text-align: right;
+  width: 75%;
+}
+
+.item-content .item-right image {
+  width: 90rpx;
+  height: 90rpx;
+  float: right;
+}
+
+.item-content .item-right icon {
+  float: right;
+  font-size: 22px;
+}
+
+.item-content .item-right input {
+  height: 40px;
+  line-height: 40px;
+  text-align: right;
+}
+
+.btn-content {
+  position: fixed;
+  bottom: 30px;
+  left: 20px;
+  right: 20px;
+}

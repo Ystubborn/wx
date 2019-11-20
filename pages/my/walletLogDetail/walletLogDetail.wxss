@@ -1,0 +1,23 @@
+.item-content {
+  background-color: #fff;
+  padding: 20rpx 30rpx 20rpx 20rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.item-content.split {
+  margin-bottom: 25rpx;
+}
+
+.item-content .item-left {
+  width: 25%;
+  color: #666;
+  font-size: 16px;
+}
+
+.item-content .item-right {
+  text-align: right;
+  width: 75%;
+}

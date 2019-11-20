@@ -1,0 +1,49 @@
+page {
+  background-color: #fff;
+}
+
+.title-content {
+  padding: 30rpx;
+}
+
+.title-content .title-info {
+  border-left: 3px solid #3696ed;
+  padding: 0 20rpx;
+  line-height: 45rpx;
+  font-size: 17px;
+}
+
+.fun-content {
+  padding: 0 15rpx 0 20rpx;
+  height: 200rpx; 
+}
+
+.fun-content .fun-item { 
+  float: left;
+  width: 120rpx;
+  margin: 10rpx;
+  height: 120rpx;
+}
+
+.fun-content .fun-item.selected {
+  border-radius: 50%;
+  background-color: #3696ed;
+  color: #fff;
+}
+.fun-content .fun-item view {
+  text-align: center;
+  font-size: 14px; 
+}
+.fun-content .fun-item view.date { 
+  line-height: 20rpx;
+  margin-top: 30rpx;
+}
+
+.fun-content .fun-item view.week {
+  color: #999;
+  line-height:50rpx;
+}
+
+.fun-content .fun-item.selected view.week {
+  color: #fff;
+}

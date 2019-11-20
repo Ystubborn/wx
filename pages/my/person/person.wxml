@@ -1,0 +1,47 @@
+<view class='item-content split' bindtap='changeHeader'>
+  <view class='item-left'>头像</view>
+  <view class='item-right'>
+    <icon class='iconfont icon-youjiantou'></icon>
+    <image src='{{fimageurl?fimageurl:"../../../images/my/photo.png"}}'></image>
+  </view>
+</view>
+<view class='item-content'>
+  <view class='item-left'>商户名称</view>
+  <view class='item-right'>
+    <input value='{{fname}}' bindinput="fillfname"></input>
+  </view>
+</view>
+<view class='item-content'>
+  <view class='item-left'>联系人</view>
+  <view class='item-right'>
+    <input value='{{fcontacts}}'  bindinput="fillfcontacts"></input>
+  </view>
+</view>
+<view class='item-content'>
+  <view class='item-left'>联系电话</view>
+  <view class='item-right' bindtap="changeMobile">
+    <input value='{{fphone}}' class="{{changeMobile?'disabled':''}}" style="width:90%;float:left;" disabled="true" ></input>
+    <icon class="iconfont icon-youjiantou" style="float:right;"></icon>
+  </view>
+</view>
+<view class='item-content'>
+  <view class='item-left'>经营区域</view>
+  <view class='item-right'>
+    <picker mode="multiSelector" bindcolumnchange="bindMultiRegionChange" range="{{regionArray}}" range-key="name" value="{{region}}">
+      <view class="picker">
+        {{regionName[0]}}，{{regionName[1]}}，{{regionName[2]}}
+      </view>
+    </picker>
+  </view>
+</view>
+<view class='item-content'>
+  <view class='item-left'>详细地址</view>
+  <view class='item-right'>
+    <input value='{{faddress}}'  bindinput="fillfaddress"></input>
+  </view>
+</view>
+
+
+<view class='btn-content'>
+  <button type="primary" class='btn-primary' bindtap='save'>保存资料</button>
+</view>

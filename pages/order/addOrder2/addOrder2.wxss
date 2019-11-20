@@ -1,0 +1,49 @@
+page {
+  background-color: #fff;
+}
+
+.title-content {
+  padding: 30rpx;
+}
+
+.title-content .title-info {
+  border-left: 3px solid #3696ed;
+  padding: 0 20rpx;
+  line-height: 45rpx;
+  font-size: 17px;
+}
+
+.fun-content { 
+  padding: 0 30rpx;
+}
+
+.fun-content .fun-item {
+  width: 205rpx;
+  border: 1px solid #dcdada;
+  margin: 15rpx 12rpx 20rpx 10rpx;
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20rpx 0 0;
+  float: left;
+}
+
+.fun-content .fun-item:active {
+  border: 1px solid #3696ed;
+}
+
+.fun-content .fun-item.selected {
+  border: 1px solid #3696ed;
+}
+
+.fun-content .fun-item image {
+  width: 52rpx;
+  height: 52rpx;
+  margin: 0 auto;
+}
+
+.fun-content .fun-item view {
+  text-align: center;
+  line-height: 80rpx;
+}

@@ -1,0 +1,78 @@
+<view wx:if="{{ready}}">
+  <view class="top-content">
+    <view class="first">
+      <image src="../../../images/order/patch.png"></image>
+    </view> 
+    <view class="third">该订单已挂起</view>
+  </view>
+
+  <view class='center-content'>
+    <view class='center-item'>
+      <view class='item-top' bindtap="showWtdxx">挂起单详情
+        <icon class="iconfont {{showWtdxxFlag?'icon-jiantou8':'icon-youjiantou'}}"></icon>
+      </view>
+      <view class='item-detail' wx:if="{{showWtdxxFlag}}">
+        <view class="split-no">  
+          <view class="custom">
+            <text class="left">日　　期：</text>
+            <text class="right">{{data.fcreatedate}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">挂起原因：</text>
+            <text class="right">{{data.fhang}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='center-content'>
+    <view class='center-item'>
+      <view class='item-top' bindtap="showDdxx">订单信息
+        <icon class="iconfont {{showDdxxFlag?'icon-jiantou8':'icon-youjiantou'}}"></icon>
+      </view>
+      <view class='item-detail' wx:if="{{showDdxxFlag}}">
+        <view class="split-no">
+          <view class="custom">
+            <text class="left">客户姓名：</text>
+            <text class="right">{{data.fname}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">联系电话：</text>
+            <text class="right" bindtap="callMobile" data-mobile="{{data.fphone}}">{{data.fphone}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">客户地址：</text>
+            <text class="right">{{data.fcusaddress}}</text> </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='center-content'>
+    <view class='center-item'>
+      <view class='item-top' bindtap="showAzxx">安装信息
+        <icon class="iconfont {{showAzxxFlag?'icon-jiantou8':'icon-youjiantou'}}"></icon>
+      </view>
+      <view class='item-detail' wx:if="{{showAzxxFlag}}">
+        <view class="split-no"> 
+          <view class="custom">
+            <text class="left">安装日期：</text>
+            <text class="right">{{data.finstalldate}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">安装师傅：</text>
+            <text class="right">{{data.fcreatorid.fname}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">联系电话：</text>
+            <text class="right" bindtap="callMobile" data-mobile="{{data.fmasterphone}}">{{data.fmasterphone}}</text> </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="white-view">&nbsp;</view>
+<view class='bottom-btn'> 
+  <button type="primary" class='sub-left-btn' bindtap='showCode'>查看完工码</button>
+  <button type="primary" class='sub-right-btn' bindtap='showOrder'>查看原订单</button>
+</view>

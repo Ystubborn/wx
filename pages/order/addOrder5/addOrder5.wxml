@@ -1,0 +1,152 @@
+<view class='item-content' wx:if="{{ fservicetype=='fres_type_01' || fservicetype=='fres_type_03' }}">
+  <view class='title-content'>
+    <view class='title-info'>物流信息</view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>物流公司 :</view>
+    <view class='fun-center'>
+      <input placeholder='请输入物流公司名称' bindinput='fillFlogistics' value='{{flogistics}}'></input>
+    </view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>物流单号 :</view>
+    <view class='fun-center'>
+      <input placeholder='请填写物流单号' bindinput='fillFlogisticsno' value='{{flogisticsno}}'></input>
+    </view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>提货地址 :</view>
+    <view class='fun-center'>
+      <input placeholder='请填写提货详细地址' bindinput='fillFcollectadd' value='{{fcollectadd}}'></input>
+    </view>
+  </view>
+  <view class='fun-bar' wx:if="{{false}}">
+    <view class='fun-left'>
+      <text>*</text>联系人员 :</view>
+    <view class='fun-center'>
+      <input placeholder='请填写提货人名称' bindinput='fillFcollectrel' value='{{fcollectrel}}'></input>
+    </view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>联系电话 :</view>
+    <view class='fun-center'>
+      <input placeholder='请填写联系电话' type='number' maxlength='11' bindinput='fillFcollectpho' value='{{fcollectpho}}'></input>
+    </view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>包装件数 :</view>
+    <view class='fun-center'>
+      <image src='../../../images/order/decr.png' bindtap='decrFpieces'></image>
+      <input class='shortInput' placeholder='输入数量' type='digit' bindinput='fillFpieces' value='{{fpieces}}'></input>
+      <image src='../../../images/order/incr.png' bindtap='incrFpieces'></image>
+    </view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>代付运费 :</view>
+    <view class='fun-center'>
+      <picker bindchange="bindPaymentPickerChange" value="{{paymentIndex}}" range-key="{{'name'}}" range="{{paymentList}}">
+        <view class="picker">
+          {{paymentList[paymentIndex].name}}
+        </view>
+      </picker>
+    </view>
+    <view class='fun-right iconfont icon-youjiantou'></view>
+  </view>
+  <view class='fun-bar' wx:if="{{paymentIndex == 1 }}">
+    <view class='fun-left'>
+      <text>*</text>代付金额 :</view>
+    <view class='fun-center'>
+      <image src='../../../images/order/decr.png' bindtap='decrDfPrice' data-pid="{{itemid}}"></image>
+      <input class='shortInput' placeholder='输入金额' type='digit' bindinput='fillDfPrice' value='{{dfPrice}}'></input>
+      <image src='../../../images/order/incr.png' bindtap='incrDfPrice' data-pid="{{itemid}}"></image>
+    </view>
+  </view>
+</view>
+
+<view class='item-content' wx:for="{{items}}" wx:for-item="item" wx:for-index="itemid" wx:key="{{itemid}}" wx:if="{{ fservicetype !='fres_type_03' }}">
+ <view class='title-content'>
+    <view class='title-info'>安装详情({{itemid+1}})</view> 
+    <image wx:if="{{itemid != 0}}" src='../../../images/order/close.png' bindtap='removeItem' data-pid="{{itemid}}"></image>
+  </view>
+  <view class='img-list'>
+    <view class='img-item'>
+      <image src='../../../images/order/upload.png' class='addImage' bindtap='chooseImg' data-id="{{itemid}}"></image>
+    </view>
+    <view class='img-item' wx:for="{{item.imgList}}" wx:for-item="img" wx:for-index="imgid" wx:key="{{imgid}}">
+      <image src='{{img}}' class='image' bindtap='showImg' data-pid="{{itemid}}" data-id="{{imgid}}"></image>
+      <image src='../../../images/order/delete.png' class='close' bindtap='deleteImg' data-pid="{{itemid}}" data-id="{{imgid}}"></image>
+    </view>
+  </view>
+  <view class='tip'>
+    <text>*</text>重要提醒：请上传完整的安装图纸，有利于师傅报价，如果图纸不全师傅将无法报价。
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>服务项目 :</view>
+    <view class='fun-center'>
+      <picker bindchange="bindServiceItemsChange" value="{{item.serviceIndex}}" range-key="{{'name'}}" data-pid='{{itemid}}' range="{{item.serviceItems}}">
+        <view class="picker">
+          {{item.serviceItems[item.serviceIndex].name}}
+        </view>
+      </picker>
+    </view>
+    <view class='fun-right iconfont icon-youjiantou'></view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>材质 :</view>
+    <view class='fun-center'>
+      <picker bindchange="bindMaterialIndexChange" value="{{item.materialIndex}}" range-key="{{'name'}}" data-pid='{{itemid}}' range="{{item.materialItems}}">
+        <view class="picker">
+          {{item.materialItems[item.materialIndex].name}}
+        </view>
+      </picker>
+    </view>
+    <view class='fun-right iconfont icon-youjiantou'></view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>数量 :</view>
+    <view class='fun-center'>
+      <image src='../../../images/order/decr.png' bindtap='decrNum' data-pid="{{itemid}}"></image>
+      <input class='shortInput' placeholder='输入数量' type='digit' data-pid="{{itemid}}" bindinput='fillNum' value='{{item.num}}'></input>
+      <image src='../../../images/order/incr.png' bindtap='incrNum' data-pid="{{itemid}}"></image>
+        <picker bindchange="bindPriceUnitPickerChange" data-pid="{{itemid}}" value="{{item.priceUnitIndex}}" range-key="{{'name'}}" range="{{item.priceUnitList}}">
+        <view class="select">
+          {{item.priceUnitList[item.priceUnitIndex].name}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>期望单价 :</view>
+    <view class='fun-center'>
+      <image src='../../../images/order/decr.png' bindtap='decrPrice' data-pid="{{itemid}}"></image>
+      <input class='shortInput' placeholder='输入期望单价' type='digit' data-pid="{{itemid}}" bindinput='fillPrice' value='{{item.price}}'></input>
+      <image src='../../../images/order/incr.png' bindtap='incrPrice' data-pid="{{itemid}}"></image> <text style="margin-left:20rpx;">元 / {{item.priceUnitName}}</text>
+    </view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      特殊要求 :</view>
+    <view class='fun-center'>
+      <textarea maxlength='100' bindinput='changeRemark' placeholder-class="placeholder" data-pid="{{itemid}}" value='{{item.remark}}' placeholder="请填写图纸以外没有注明的安装产品(例如：需要安装智能产品，罗马柱需要切角，顶线需要切割)安装请带齐工具(100字以内)"></textarea>
+    </view>
+    <view class='fun-bottom'>{{item.remarkNum}}/100</view>
+  </view>
+</view>
+<view class='btn-content' wx:if="{{ fservicetype !='fres_type_03' }}">
+  <view class='add-btn' bindtap='addItem' bindtap='addItem'>
+    <image src="../../../images/order/add.png"></image> 添加商品</view>
+</view>
+<view class="white-view">&nbsp;</view>
+<cover-view class='bottom-btn'>
+  <button type="primary" class='sub-btn' bindtap='addProduct'>下一步</button>
+</cover-view>

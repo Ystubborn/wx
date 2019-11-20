@@ -1,0 +1,85 @@
+page {
+  background-color: #f1f1f1;
+}
+
+.top-content {
+  background-color: #3696ed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 320rpx;
+  padding: 10rpx 0 40rpx;
+}
+
+.top-content .first {
+  width: 100%;
+  margin: 40rpx 0 0;
+  font-size: 25px;
+  color: #fff;
+  text-align: center;
+}
+
+.top-content .second {
+  width: 100%;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+}
+
+.top-content .third {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 70rpx;
+}
+
+.top-content .third button {
+  background-color: inherit;
+  border: 1px solid #fff;
+  color: #fff;
+  width: 200rpx;
+  line-height: 70rpx; 
+  height: 80rpx; 
+  font-size: 15px;
+}
+
+.fun-content {
+  margin-top: 25rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.fun-content .fun-item {
+  height: 80rpx;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #fff;
+  margin-bottom: 2rpx;
+}
+
+.fun-content .fun-item .item1 {
+  width: 15%;
+  line-height: 80rpx;
+}
+
+.fun-content .fun-item .item1  image {
+  width: 30px;
+  height: 30px;
+  margin: 10rpx 20rpx;
+}
+
+.fun-content .fun-item .item2 {
+  font-size: 16px;
+  width: 60%;
+  line-height: 80rpx;
+}
+
+.fun-content .fun-item .item3 {
+  width: 20%;
+  line-height: 80rpx;
+  text-align: right;
+  font-size: 20px;
+}

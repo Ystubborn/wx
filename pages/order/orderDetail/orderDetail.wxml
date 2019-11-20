@@ -1,0 +1,361 @@
+<view class='top-content' wx:if="{{ready}}">
+  <view class='top-info'>
+    <view class='first-info'>{{fserstatus}}</view>
+  </view>
+</view>
+<view class='content' wx:if="{{ready}}">
+  <view class='time-info' wx:if="{{status=='sht_serstatus03' || status=='sht_serstatus10' ||status=='sht_serstatus11'}}">距离截止时间：
+    <text>{{fautodowntime_day}}</text> 天
+    <text>{{fautodowntime_hour}}</text> 时
+    <text>{{fautodowntime_mintue}}</text> 分
+    <text>{{fautodowntime_second}}</text> 秒
+  </view>
+  <view class='top-detail' bindtap='goOrderQuote' wx:if="{{fmasterid_fname ==''}}">
+    <view class='detail-title'>师傅正在{{foffertype.id=='offer_type_01'?'抢单':'报价'}}：</view>
+    <view class='detail-content'>
+      <view class='detail-item' wx:for="{{fmasterList}}" wx:key="fmasterid">
+        <view class='detail-image'>
+          <image src='{{item.fimageurl.length!=0?item.fimageurl:"../../../images/my/user.png"}}'></image>
+        </view>
+        <view class='detail-price'>￥{{item.fquotationamount}}</view>
+      </view>
+      <view class='detail-item' wx:for="{{fmasterOtherList}}" wx:key="id">
+        <view class='detail-image'>
+          <text>?</text>
+        </view>
+        <view class='detail-price no-price'>￥0</view>
+      </view>
+      <view class='right-item'>共
+        <text>{{fmastercount}}</text>个{{foffertype.id=='offer_type_01'?'抢单':'报价'}}
+        <label class='iconfont icon-shuangjiantouyou'></label>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{fmasterid_fname !=''}}" class='master-detail'>
+    <image src='{{fmasterid_fimage.length!=0?fmasterid_fimage:"../../../images/my/user.png"}}'></image> {{fmasterid_fname}}
+    <icon class='iconfont icon-service-phone'></icon>
+    <text wx:if="{{status=='sht_serstatus11'}}"> 付款后可联系师傅 </text>
+    <text class='phone' bindtap='callMobile' data-mobile='{{fmasterphone}}' wx:if="{{status=='sht_serstatus12' ||status=='sht_serstatus13' ||status=='sht_serstatus16' ||status=='sht_serstatus06'  ||status=='sht_serstatus07'}}">{{fmasterphone}}</text>
+    <text class='phone' wx:if="{{status=='sht_serstatus08' }}">{{fmasterphone_txt}}</text>
+    <label>¥{{fquotationamount}}</label>
+    <view class='master-date' wx:if="{{status=='sht_serstatus13' || status=='sht_serstatus16' ||status=='sht_serstatus06' }}">
+      <view wx:if="{{status=='sht_serstatus13' || status=='sht_serstatus16' }}"> 预约时间：
+        <text>{{fappointdate}}{{fappointenddate}}</text>
+      </view>
+      <view wx:if="{{status=='sht_serstatus06' }}"> 服务时间：
+        <text>{{fsubscribedate}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='center-content'>
+    <view class='center-item'>
+      <view class='item-top'>服务需求</view>
+      <view class='item-detail'>
+        <view class="custom">
+          <text>类型：</text>{{fservicetype_txt}}
+        </view>
+        <view class="custom">
+          <text>类目：</text>{{fprofield}}
+        </view>
+        <view class="custom">
+          <text>到货情况：</text> {{fisarrival?'已到货':'未到货'}}
+          <label wx:if="{{!fisarrival}}"> (预计{{fexpectedarrivaldate}}到货) </label>
+        </view>
+        <view class="custom">
+          <text>期望服务日期：</text>{{forderdate}}</view>
+        <!-- <view class="custom">
+          <text>{{foffertype.id=='offer_type_01'?'一口价':'期望报价'}}：</text>
+          <label>¥{{fexpectamount}}</label>
+        </view> -->
+      </view>
+    </view>
+  </view>
+  <view class='center-content' wx:if="{{fserviceentry && fservicetype != 'fres_type_03'}}">
+    <view class='center-item'>
+      <view class='item-top'>订单详情
+        <text class="bug">{{foffertype.fname}}</text>
+      </view>
+      <view class='item-content' wx:for="{{fserviceentry}}" wx:key="id">
+        <view class='content-left' catchtap='showImg' data-imgs='{{item.imgs}}'>
+          <image src='{{item.img}}'> </image>
+          <text>{{item.imgs.length}}</text>
+        </view>
+        <view class='content-right'>
+          <view class="custom">物品类型：{{item.fprofieldentry.fname}}
+            <text>材质：{{item.fmaterial.fname}}</text>
+          </view>
+          <view class="custom">数量：{{item.fqty}}{{item.funitid.fname}}
+            <text>单价：</text>
+            <label> {{item.fprice}}元 </label>
+          </view>
+          <view class="custom">特殊要求： {{item.frequire}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='center-content' wx:if="{{fservicetype=='fres_type_01' || fservicetype=='fres_type_03'}}">
+    <view class='center-item'>
+      <view class='item-top'>物流信息</view>
+      <view class='item-detail'>
+        <view class="custom">
+          <text>物流公司：</text>{{flogistics}}
+        </view>
+        <view class="custom">
+          <text>物流单号：</text>{{flogisticsno}}
+        </view>
+        <view class="custom">
+          <text>提货地址：</text> {{fcollectadd}}
+        </view>
+        <!-- <view class="custom">
+          <text>联系人员：</text> {{fcollectrel}} </view> -->
+        <view class="custom">
+          <text>联系电话：</text>
+          <label class='mobile' bindtap='callMobile' data-mobile='{{fcollectpho}}'>{{fcollectpho}}</label>
+        </view>
+        <view class="custom">
+          <text>包装件数：</text>
+          <label> {{fpieces}} </label>
+        </view>
+        <view class="custom">
+          <text>是否代付：</text>
+          <label>{{fispay?'是':'否'}}</label>
+        </view>
+        <view wx:if="{{fispay}}" class="custom">
+          <text>代付运费：</text>
+          <label>{{fshippingamount}}元 </label>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='center-content'>
+    <view class='center-item'>
+      <view class='item-top'>基本信息</view>
+      <view class='item-detail'>
+        <view class="custom">
+          <text>客户姓名：</text> {{fname}}
+        </view>
+        <view class="custom">
+          <text>联系电话：</text>
+          <label class='mobile' bindtap='callMobile' data-mobile='{{fphone}}'>{{fphone}}</label>
+        </view>
+        <view class="custom">
+          <text>客户地址：</text> {{fregion}}{{fcusaddress}}
+        </view>
+        <view class="custom">
+          <text>订单编号：</text> {{fbillno}} </view>
+        <view class="custom">
+          <text>下单时间：</text> {{fcreatedate}} </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='center-content' wx:if="{{furgentname.length>0}}">
+    <view class='center-item'>
+      <view class='item-top'>紧急联系</view>
+      <view class='item-detail'>
+        <view class="custom">
+          <text>联系人员：</text>{{furgentname}}
+        </view>
+        <view class="custom">
+          <text>联系电话：</text>
+          <label class='mobile' bindtap='callMobile' data-mobile='{{furgentphone}}'>{{furgentphone}}</label>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='center-content' wx:if="{{status=='sht_serstatus11'}}">
+    <view class='center-item'>
+      <view class='item-top'>服务保障</view>
+      <view class='item-detail split' wx:if="{{fservicetype=='fres_type_01' || fservicetype=='fres_type_03'}}">
+        <view class="item-fun">
+          <view class="left">
+            <view class="first">运送保险</view>
+            <view class="second" bindtap="toTransportProtocol">左右手运送保细则 >></view>
+          </view>
+          <view class="right">￥10/单
+            <switch bindchange="switchYsbxChange" />
+          </view>
+        </view>
+      </view>
+      <view class='item-detail'>
+        <view class="item-fun">
+          <view class="left">
+            <view class="first">
+              第三方责任险</view>
+            <view class="second" bindtap="toThirdProtocol">
+              <view class="detail">
+                人/财保障，免费赠送，最高赔付30万元。
+              </view>
+              左右手第三方保障细则 >>
+            </view>
+          </view>
+          <view class="right">
+            ￥0.0/单
+            <label>3/单</label>
+            <switch bindchange="switchDsfzrxChange" checked="true" disabled="false" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='center-content' wx:if="{{status=='sht_serstatus11'}}">
+    <view class='center-item'>
+      <view class='item-top'>现金券</view>
+      <view class='item-detail' bindtap="goCoupon">
+        <view class="item-fun">
+          <view class="left">可用现金券</view>
+          <view class="right">{{cname}}
+            <icon class="iconfont icon-youjiantou"></icon>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='center-content' wx:if="{{status=='sht_serstatus11' || status=='sht_serstatus12' || status=='sht_serstatus13'|| status=='sht_serstatus16' || status=='sht_serstatus06'  || status=='sht_serstatus07' || status=='sht_serstatus08'}}">
+    <view class='center-item'>
+      <view class='item-top'>费用明细</view>
+      <view class='item-detail'>
+        <view wx:for="{{amountlist}}" class="custom" wx:key="{{item.famounttypename}}">
+          <text class="left">{{item.famounttypename}}</text>
+          <text class="right"><block wx:if="{{item.fbizdirection == 'fdirection_01'}}">-</block> ¥ {{item.famount}} </text>
+        </view>
+        <view wx:if="{{hasYsbx==1}}" class="custom">
+          <text class="left">运送保险</text>
+          <text class="right"> ¥ 10</text>
+        </view>
+        <view wx:if="{{cval>0}}" class="custom">
+          <text class="left">现金券抵扣</text>
+          <text class="right"> - ¥ {{cval}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="bottom-item">
+      <text wx:if="{{status=='sht_serstatus12' || status=='sht_serstatus13'|| status=='sht_serstatus16' || status=='sht_serstatus06'  || status=='sht_serstatus07' || status=='sht_serstatus08'}}">实付金额 </text>
+      <label wx:if="{{status=='sht_serstatus12' || status=='sht_serstatus13'|| status=='sht_serstatus16' || status=='sht_serstatus06'  || status=='sht_serstatus07' || status=='sht_serstatus08'}}">¥ {{faccountableamount}}</label>
+      <text wx:if="{{status=='sht_serstatus11'}}">应付金额 </text>
+      <label wx:if="{{status=='sht_serstatus11'}}">¥ {{hasYsbx==1?(faccountableamount+10-cval):faccountableamount-cval}}</label>
+    </view>
+  </view>
+  <view class="white-view" wx:if="{{status=='sht_serstatus03' || status=='sht_serstatus10' || status=='sht_serstatus11'|| status=='sht_serstatus06' || status=='sht_serstatus07' || status=='sht_serstatus08' || status=='sht_serstatus01' || status=='sht_serstatus00'}}">&nbsp;</view>
+</view>
+<view class='bottom-btn' wx:if="{{status=='sht_serstatus03' || status=='sht_serstatus10'}}">
+  <button type="primary" class='sub-right-btn' bindtap='cancelOrder'>取消订单</button>
+</view>
+<view class='bottom-btn' wx:if="{{status=='sht_serstatus11'}}">
+  <button type="primary" class='sub-right-btn' bindtap='showPay'>立即支付</button>
+  <button type="primary" class='sub-left-btn' bindtap='cancelOrder'>取消订单</button>
+</view>
+<view class='bottom-btn' wx:if="{{status=='sht_serstatus06'}}">
+  <button type="primary" class='sub-right-btn' bindtap='showCode'>查看完工码</button>
+</view>
+<view class='bottom-btn' wx:if="{{status=='sht_serstatus07'}}">
+  <button type="primary" id="showMore" class='sub-btn' bindtap='showMore'>···</button>
+  <button type="primary" class='sub-left-btn' bindtap='feedback'>反馈</button>
+  <button type="primary" class='sub-right-btn' bindtap='showFinishResult'>验收</button>
+</view>
+<view class='bottom-btn' wx:if="{{status=='sht_serstatus08'}}">
+  <button type="primary" class='sub-left-btn' bindtap='goComment' wx:if="{{fmevaluatedate.length==0}}">评价</button>
+  <button type="primary" class='sub-right-btn' bindtap='goOrderProcess'>服务过程</button>
+</view>
+<view class='bottom-btn' wx:if="{{status=='sht_serstatus01'}}">
+  <button type="primary" class='sub-right-btn' bindtap='rePublish'>重新发布</button>
+</view>
+<view class='bottom-btn' wx:if="{{status=='sht_serstatus00'}}">
+  <button type="primary" class='sub-right-btn' bindtap='publish'>发布</button>
+</view>
+
+<popover id='popover'>
+  <popover-item bindtap='goQuoteDetail' hasline>师傅报价</popover-item>
+  <popover-item bindtap='goOrderProcess'>服务过程</popover-item>
+</popover>
+
+<view class="mask" wx:if="{{showPay}}">
+  <view class='maskContent' wx:if="{{showPayContent}}">
+    <view class='title'>
+      确认支付
+      <icon class='iconfont icon-iconfontguanbi ruleHide' bindtap='hidePay'></icon>
+    </view>
+    <view class='center'>
+      <view class="first">订单支付</view>
+      <view class="second">¥{{hasYsbx==1?(faccountableamount+10-cval):faccountableamount-cval}}</view>
+      <view class="thrid" wx:if="{{payType=='account'}}" bindtap="showPayType">
+        <image src="../../../images/my/fun1.png" class="account"></image> 账户余额
+        <icon class="iconfont icon-youjiantou"> </icon>
+      </view>
+      <view class="thrid" wx:if="{{payType=='wxpay'}}" bindtap="showPayType">
+        <image src="../../../images/my/wx.png" class="wx"></image> 微信支付
+        <icon class="iconfont icon-youjiantou"> </icon>
+      </view>
+      <view style="height: 95rpx;" wx:if="{{payType=='account'}}">
+        <view class='input_row {{payFocus?"select":""}}' catchtap='getFocus'>
+          <view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+            <text wx:if='{{pwdVal.length>i}}'></text>
+          </view>
+        </view>
+        <input class='input_control' password type='number' focus='{{payFocus}}' value="{{pwdVal}}" bindinput='inputPwd' maxlength='6' />
+      </view>
+      <view wx:if="{{payType=='wxpay'}}" style="padding:0 10rpx;">
+        <button type="primary" class='weui-btn weui-btn_primary' bindtap='wxpay'>微信支付</button>
+      </view>
+    </view>
+  </view>
+  <view class='maskContent' wx:if="{{showPayItem}}">
+    <view class='title'>
+      请选择支付方式
+      <icon class='iconfont icon-iconfontguanbi ruleHide' bindtap='hidePayItem'></icon>
+    </view>
+    <view class='center'>
+      <view class="pay-item" bindtap="selectPayType" data-type="account">
+        <image src="../../../images/my/fun1.png" class="account"></image> 账户余额
+        <icon class="iconfont icon-youjiantou"> </icon>
+      </view>
+      <view class="thrid" bindtap="selectPayType" data-type="wxpay">
+        <image src="../../../images/my/wx.png" class="wx"></image> 微信支付
+        <icon class="iconfont icon-youjiantou"> </icon>
+      </view>
+    </view>
+  </view>
+  <view class='maskContent' wx:if="{{showPayResult}}">
+    <view class='title'>
+      {{payResult?'支付成功':'支付失败'}}
+      <icon class='iconfont icon-iconfontguanbi ruleHide' bindtap='hidePayResult'></icon>
+    </view>
+    <view class='center'>
+      <view class="result-view" wx:if="{{payResult}}">
+        <image src="../../../images/order/paySuccess.png"></image>
+        <view>订单支付成功</view>
+      </view>
+      <view class="result-view" wx:if="{{!payResult}}">
+        <image src="../../../images/order/payFailure.png"></image>
+        <view>{{payRestltTxt}}</view>
+      </view>
+      <view class="btn-view" wx:if="{{payResult}}">
+        <button type="primary" class='sub-left-btn' bindtap='reflushOrder'>查询订单</button>
+        <button type="primary" class='sub-right-btn' bindtap='goAddOrder'>继续下单</button>
+      </view>
+      <view class="btn-view" wx:if="{{!payResult}}">
+        <button type="primary" class='sub-left-btn' bindtap='goRecharge'>前往充值</button>
+        <button type="primary" class='sub-right-btn' bindtap='showPayType'>其他支付方式</button>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="mask" wx:if="{{finishResultFlag}}">
+  <view class='maskContent'>
+    <view class='title'>
+      确认验收
+      <icon class='iconfont icon-iconfontguanbi ruleHide' bindtap='hideFinishResult'></icon>
+    </view>
+    <view class='center'>
+      <view class="result-view">
+        <image src="../../../images/order/finish.png"></image>
+        <view>确认验收吗？</view>
+      </view>
+      <view class="btn-view">
+        <button type="primary" class='sub-left-btn' bindtap='hideFinishResult'>取消</button>
+        <button type="primary" class='sub-right-btn' bindtap='finishOrder'>确定</button>
+      </view>
+    </view>
+  </view>
+</view>

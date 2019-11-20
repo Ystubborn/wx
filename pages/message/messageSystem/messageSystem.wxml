@@ -1,0 +1,16 @@
+<view class='message-date' wx:if="{{false}}">2019-09-03</view>
+<view class='message-content' wx:for="{{items}}" wx:key="id">
+  <view class='message-img'>
+    <image src='../../../images/remote/banner.png'></image>
+  </view>
+  <view class='messge-title'>订单信息</view>
+  <view class='message-info'>你的订单更新了进度，请及时查看！</view>
+</view>
+
+<view wx:if="{{nomoredata}}" class='no-more-data'>
+  没有更多了!
+</view>
+<view wx:if="{{nodata}}" class='no-data'>
+  <image src="../../../images/message/message.png"></image>
+  <view>暂无更多消息</view>
+</view>

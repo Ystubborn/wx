@@ -1,0 +1,9 @@
+<view class='title-content'>
+  <view class='title-info'>请选择下单模式</view>
+</view>
+<view class='fun-content'>
+  <view class='fun-item {{model==item.fentryid ? "selected" : ""}}' bindtap='selectType' wx:key="fentryid" data-model='{{item.fentryid}}' wx:for="{{items}}" wx:for-index="idx" wx:for-item="item">
+    <image src='{{imgs[idx]}}'></image>
+    <view>{{item.fenumitem}}</view>
+  </view>
+</view>

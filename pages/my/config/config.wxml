@@ -1,0 +1,25 @@
+<view class='item-content split' bindtap='goPerson'>
+  <view class='item-left'>
+    <image src='{{img}}'></image> {{name}}</view>
+  <view class='item-right'>
+    <icon class='iconfont icon-youjiantou'></icon>
+  </view>
+</view>
+<view class='fun-content'>
+  <view class='fun-item' bindtap='goLoginPwd'>
+    <view class='item2'>修改登录密码</view>
+    <view class='item3'>
+      <icon class='iconfont icon-youjiantou'></icon>
+    </view>
+  </view>
+  <view class='fun-item' bindtap='goPayPwd'>
+    <view class='item2'>修改支付密码</view>
+    <view class='item3'>
+      <icon class='iconfont icon-youjiantou'></icon>
+    </view>
+  </view>
+</view>
+
+<view class='btn-content'>
+  <button type="warn"  bindtap='logOut'>退出登录</button>
+</view>

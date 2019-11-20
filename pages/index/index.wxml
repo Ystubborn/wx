@@ -1,0 +1,71 @@
+<view class="home-wrap" wx:if="{{isReady}}">
+  <swiper indicator-dots="true" autoplay="false" interval="10000" duration="1000" class='swiper'>
+    <view wx:for="{{banner}}" wx:key="unique">
+      <swiper-item>
+        <view>
+          <navigator wx:if="{{isUrl}}" url="/pages/custom/web/web?title={{item.title}}&url={{item.target}}&id={{item.id}}">
+            <image src="{{item.image}}" mode="scaleToFill center" class="banner"></image>
+          </navigator>
+          <image wx:if="{{!isUrl}}" src="{{item.image}}" mode="scaleToFill center" class="banner"></image>
+        </view>
+      </swiper-item>
+    </view>
+  </swiper>
+  <!-- <view class="ads-list">
+      <image src="{{advertise.image}}" mode="scaleToFill center" class="sub-banner"></image> 
+  </view> -->
+  <view class="workbench">
+    <text class="title">我的订单</text>
+    <view class="list">
+      <view class="items" bindtap="goOrderList" data-status='2'>
+        <image src="../../images/index/fun_1.png"></image>
+        <view class='content'>
+          <view class='val'>{{sht_serstatus10}}</view>
+          <view>待雇佣 </view>
+        </view>
+      </view>
+      <view class="items" bindtap="goOrderList" data-status='3'>
+        <image src="../../images/index/fun_2.png"></image>
+        <view class='content'>
+          <view class='val'>{{sht_serstatus11}}</view>
+          <view>待托管费用 </view>
+        </view>
+      </view>
+      <view class="items" bindtap="goOrderList" data-status='6'>
+        <image src="../../images/index/fun_3.png"></image>
+        <view class='content'>
+          <view class='val'>{{sht_serstatus06}}</view>
+          <view>服务中 </view>
+        </view>
+      </view>
+      <view class="items" bindtap="goOrderList" data-status='7'>
+        <image src="../../images/index/fun_4.png"></image>
+        <view class='content'>
+          <view class='val'>{{sht_serstatus07}}</view>
+          <view>待验收 </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="workbench">
+    <text class="title">最新活动</text>
+    <view class="list2">
+      <view class="items" bindtap="toidcard">
+        <image src="../../images/index/fun_5.png"></image>
+        <view class='content'>
+          <view class='tip'>首充返现</view>
+          <view>首次充值全额返现</view>
+          <view>最高可反100元</view>
+        </view>
+      </view>
+      <view class="items" bindtap="toidcard">
+        <image src="../../images/index/fun_6.png"></image>
+        <view class='content'>
+          <view class='tip'>邀请商户</view>
+          <view>邀请新用户</view>
+          <view>赚取收益</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

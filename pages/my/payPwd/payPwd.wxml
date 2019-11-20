@@ -1,0 +1,49 @@
+<view class='item-content split' wx:if="{{fispaypwd==1}}">
+  <view class='item-left'>旧支付密码</view>
+  <view class='item-right'>
+  <input class='input_control' password type='number' focus='{{payFocus}}' bindinput='inputPwd' value="{{pwdVal}}" maxlength='6' />
+    <view class='input_row {{payFocus?"select":""}}' catchtap='getFocus'>
+      <view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+        <text wx:if='{{pwdVal.length>i}}'></text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='item-content'>
+  <view class='item-left'>新支付密码</view>
+  <view class='item-right'>
+   <input class='input_control' password type='number' focus='{{payFocus1}}' bindinput='inputPwd1' value="{{pwdVal1}}" maxlength='6' />
+    <view class='input_row {{payFocus1?"select":""}}' catchtap='getFocus1'>
+      <view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+        <text wx:if='{{pwdVal1.length>i}}'></text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='item-content split'>
+  <view class='item-left'>重复新密码</view>
+  <view class='item-right'>
+    <input class='input_control' password type='number' focus='{{payFocus2}}' bindinput='inputPwd2' value="{{pwdVal2}}" maxlength='6' />
+    <view class='input_row {{payFocus2?"select":""}}' catchtap='getFocus2'>
+      <view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+        <text wx:if='{{pwdVal2.length>i}}'></text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='item-content' style="flex-direction: row;">
+  <view class='item-left'>手机号</view>
+  <view class='item-right'>
+    <input value="{{mobile}}" disabled="true"></input>
+  </view>
+</view>
+<view class='item-content' style="flex-direction: row;">
+  <view class='item-left'>验证码</view>
+  <view class='item-right2'>
+    <input value="{{sms}}" type="number" bindinput="fillSms" placeholder='输入验证码' maxlength="4" class="sub-input"></input>
+    <button type="primary" class='sub-btn' catchtap='sendSms' disabled='{{disableComp}}'>{{smsTxt}}</button>
+  </view>
+</view> 
+<view class='btn-content'>
+  <button type="primary" class='btn-primary' bindtap='validSms'>提交</button>
+</view>

@@ -1,0 +1,159 @@
+<view wx:if="{{ready}}">
+  <view class="top-content">
+    <view class="first">
+      <image src="../../../images/order/patch.png"></image>
+    </view>
+    <view class="second">¥{{data.famount}}</view>
+    <view class="third">{{data.fadditionalfeestatus.fenumitem}}</view>
+  </view>
+
+  <view class='center-content'>
+    <view class='center-item'>
+      <view class='item-top' bindtap="showWtdxx">附加费详情
+        <icon class="iconfont {{showWtdxxFlag?'icon-jiantou8':'icon-youjiantou'}}"></icon>
+      </view>
+      <view class='item-detail' wx:if="{{showWtdxxFlag}}">
+        <view class="split-no">
+          <view class="img-view" wx:if="{{data.fimage.fimageurl.length>0}}">
+            <view class="img-info">
+              <text class="left-info">图片列表</text>
+            </view>
+            <view class="img-list">
+              <image wx:for="{{data.fimage.fimageurl}}" wx:key="index" bindtap="showImg" data-imgs="{{data.fimage.fimageurl}}" wx:for-item="img" src="{{img}}"></image>
+            </view>
+          </view>
+          <view class="custom">
+            <text class="left">杂费类型：</text>
+            <text class="right">{{data.ffeeitemnames}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">日　　期：</text>
+            <text class="right">{{data.fcreatedate}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">杂费说明：</text>
+            <text class="right">{{data.fdescription}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='center-content'>
+    <view class='center-item'>
+      <view class='item-top' bindtap="showDdxx">订单信息
+        <icon class="iconfont {{showDdxxFlag?'icon-jiantou8':'icon-youjiantou'}}"></icon>
+      </view>
+      <view class='item-detail' wx:if="{{showDdxxFlag}}">
+        <view class="split-no">
+          <view class="custom">
+            <text class="left">客户姓名：</text>
+            <text class="right">{{data.fcustname}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">联系电话：</text>
+            <text class="right" bindtap="callMobile" data-mobile="{{data.fphone}}">{{data.fphone}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">客户地址：</text>
+            <text class="right">{{data.faddress}}</text> </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='center-content'>
+    <view class='center-item'>
+      <view class='item-top' bindtap="showAzxx">安装信息
+        <icon class="iconfont {{showAzxxFlag?'icon-jiantou8':'icon-youjiantou'}}"></icon>
+      </view>
+      <view class='item-detail' wx:if="{{showAzxxFlag}}">
+        <view class="split-no">
+          <view class="custom">
+            <text class="left">安装师傅：</text>
+            <text class="right">{{data.fmasterid.fname}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">联系电话：</text>
+            <text class="right" bindtap="callMobile" data-mobile="{{data.fmasterphone}}">{{data.fmasterphone}}</text> </view>
+        </view>
+      </view>
+    </view>
+  </view> 
+  <view class="mask" wx:if="{{showPay}}">
+    <view class='maskContent' wx:if="{{showPayContent}}">
+      <view class='title'>
+        确认支付
+        <icon class='iconfont icon-iconfontguanbi ruleHide' bindtap='hidePay'></icon>
+      </view>
+      <view class='center'>
+        <view class="first">附加费支付</view>
+        <view class="second">¥{{data.famount}}</view>
+        <!-- <view class="thrid" wx:if="{{payType=='account'}}"  bindtap="showPayType"> -->
+        <view class="thrid" wx:if="{{payType=='account'}}">
+          <image src="../../../images/my/fun1.png" class="account"></image> 账户余额
+          <!-- <icon class="iconfont icon-youjiantou"> </icon> -->
+        </view>
+        <view class="thrid" wx:if="{{payType=='wxpay'}}" bindtap="showPayType">
+          <image src="../../../images/my/wx.png" class="wx"></image> 微信支付
+          <icon class="iconfont icon-youjiantou"> </icon>
+        </view>
+        <view style="height: 95rpx;" wx:if="{{payType=='account'}}">
+          <view class='input_row {{payFocus?"select":""}}' catchtap='getFocus'>
+            <view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+              <text wx:if='{{pwdVal.length>i}}'></text>
+            </view>
+          </view>
+          <input class='input_control' password type='number' focus='{{payFocus}}' value="{{pwdVal}}" bindinput='inputPwd' maxlength='6' />
+        </view>
+        <view wx:if="{{payType=='wxpay'}}" style="padding:0 10rpx;">
+          <button type="primary" class='weui-btn weui-btn_primary' bindtap='wxpay'>微信支付</button>
+        </view>
+      </view>
+    </view>
+    <view class='maskContent' wx:if="{{showPayItem}}">
+      <view class='title'>
+        请选择支付方式
+        <icon class='iconfont icon-iconfontguanbi ruleHide' bindtap='hidePayItem'></icon>
+      </view>
+      <view class='center'>
+        <view class="pay-item" bindtap="selectPayType" data-type="account">
+          <image src="../../../images/my/fun1.png" class="account"></image> 账户余额
+          <icon class="iconfont icon-youjiantou"> </icon>
+        </view>
+        <view class="thrid" bindtap="selectPayType" data-type="wxpay">
+          <image src="../../../images/my/wx.png" class="wx"></image> 微信支付
+          <icon class="iconfont icon-youjiantou"> </icon>
+        </view>
+      </view>
+    </view>
+    <view class='maskContent' wx:if="{{showPayResult}}">
+      <view class='title'>
+        {{payResult?'支付成功':'支付失败'}}
+        <icon class='iconfont icon-iconfontguanbi ruleHide' bindtap='hidePayResult'></icon>
+      </view>
+      <view class='center'>
+        <view class="result-view" wx:if="{{payResult}}">
+          <image src="../../../images/order/paySuccess.png"></image>
+          <view>附加费支付成功</view>
+        </view>
+        <view class="result-view" wx:if="{{!payResult}}">
+          <image src="../../../images/order/payFailure.png"></image>
+          <view>{{payRestltTxt}}</view>
+        </view>
+        <view class="btn-view" wx:if="{{payResult}}">
+          <button type="primary" class='sub-left-btn' bindtap='toIndex'>返回首页</button>
+          <button type="primary" class='sub-right-btn' bindtap='initPage'>查询订单</button>
+        </view>
+        <view class="btn-view" wx:if="{{!payResult}}">
+          <button type="primary" class='sub-left-btn' bindtap='goRecharge'>前往充值</button>
+          <button type="primary" class='sub-right-btn' bindtap='showPayType'>其他支付方式</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="white-view" wx:if="{{data.fadditionalfeestatus.id=='premium_status01'}}">&nbsp;</view> 
+  <view class='bottom-btn' wx:if="{{data.fadditionalfeestatus.id=='premium_status01'}}">
+    <button type="primary" class='sub-left-btn' bindtap='cancelOrder'>驳回</button>
+    <button type="primary" class='sub-right-btn' bindtap='showPay'>确认支付</button>
+  </view>
+</view>

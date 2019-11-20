@@ -1,0 +1,52 @@
+<view class="home-wrap">
+  <view class="track-input-block">
+    <icon type="search" size="15" color="gray" />
+    <input class="track-input" placeholder="搜索" bindconfirm="search" value="{{keyword}}" bindinput="fillKeyword" confirm-type="search" />
+  </view>
+  <!-- 导航 -->
+  <scroll-view class="top_nav" scroll-x="true" bindscroll="scroll" scroll-into-view="{{currentId>4?'S_'+currentId:''}}" scroll-with-animation="true">
+    <view class="nav-name {{item.typeId == currentId ? 'nav-hover':''}}" wx:for="{{section}}" wx:key="id" id="{{'S_'+item.typeId}}" data-id='{{item.typeId}}' catchtap='handleTap'> {{item.name}} </view>
+  </scroll-view>
+
+  <view class='order-item'  wx:for="{{items}}" wx:key="id" bindtap='goOrderDetail' data-id='{{item.fbillhead_id}}' >
+    <view class='order-item-top'>
+      <view class='item-top-left' wx:if="{{item.fmaster_name == ''}}">
+        <text>{{item.fcount}}</text>个师傅{{item.foffertype == "offer_type_01" ? '抢单' : '报价'}}
+        <label class='iconfont icon-shuangjiantouyou'></label>
+        <text class="bug">{{item.foffertype_fenumitem}}</text>
+      </view>
+      <view class='item-top-left' wx:if="{{item.fmaster_name!=''}}">
+        <image src='{{item.fmaster_header.length!=0?item.fmaster_header:"../../../images/my/user.png"}}'></image> {{item.fmaster_name}} <text class='price'>¥{{item.fmaster_price}}</text>
+        <label class='iconfont icon-shuangjiantouyou'></label>
+        <text class="bug">{{item.foffertype_fenumitem}}</text>
+      </view>
+      <view class='item-top-right'>{{item.fserstatus_txt}}</view>
+    </view>
+    <view class='order-item-center'>
+      <view class='item-center-left' catchtap='showImg' data-imgs='{{item.fimages}}'>
+        <image src='{{item.fimages[0].length>0?item.fimages[0]:"../../../images/order/fun33.png"}}'></image>
+        <text wx:if="{{item.fimages[0].length>0}}">{{item.fimages.length}}</text>
+      </view>
+      <view class='item-center-center'>
+        <view class='item-cente-first'>{{item.fservicetype_fenumitem}} | {{item.fprofield_txt}}</view>
+        <view class='item-cente-second'>{{item.fname}} {{item.fphone}}</view>
+        <view class='item-cente-thrid'>{{item.fcusaddress}}</view>
+      </view>
+    </view>
+    <view class='order-item-bottom'>
+      <view class='item-bottom-left'>发布时间：{{item.fcreatedate}}</view>
+      <view class='item-bottom-right' wx:if="{{item.fserstatus=='sht_serstatus01'}}">关闭时间：{{item.fcanceldate}}</view>
+      <view class='item-bottom-right' wx:if="{{item.fserstatus=='sht_serstatus08' || item.fserstatus=='sht_serstatus07'}}">完工时间：{{item.fcompletiondate}}</view>
+      <view class='item-bottom-right' wx:if="{{(item.fserstatus=='sht_serstatus03' ||item.fserstatus=='sht_serstatus10' ||item.fserstatus=='sht_serstatus11') && item.fautodowntime}}">关闭时间：{{item.fautodowntime}}</view>
+      <view class='item-bottom-right' wx:if="{{item.fserstatus=='sht_serstatus13'||item.fserstatus=='sht_serstatus16'}}">预约时间：{{item.fappointdate}}{{item.fappointenddate}}</view> 
+      <view class='item-bottom-right' wx:if="{{item.fserstatus=='sht_serstatus06' && item.fservicedate}}">服务时间：{{item.fservicedate}}</view> 
+    </view>
+  </view> 
+  <view wx:if="{{nomoredata}}" class='no-more-data'>
+    没有更多了!
+  </view>
+  <view wx:if="{{nodata}}" class='no-data'> 
+    <image src="../../../images/order/noOrder.png"></image>
+    <view>暂无订单</view>
+  </view>
+</view>

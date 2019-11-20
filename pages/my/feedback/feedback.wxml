@@ -1,0 +1,42 @@
+<view class='item-content'>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>问题类型</view>
+    <view class='fun-center'>
+      <picker bindchange="bindPickerChange" value="{{selectIndex}}" range-key="{{'fenumitem'}}" range="{{items}}">
+        <view class="picker">
+          {{items[selectIndex].fenumitem}}
+        </view>
+      </picker>
+    </view>
+    <view class='fun-right iconfont icon-youjiantou'></view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>联系人</view>
+    <view class='fun-center'>
+      <input placeholder='请输入联系人名' bindinput='fillName'></input>
+    </view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>联系电话</view>
+    <view class='fun-center'>
+      <input placeholder='请输入联系电话' type="number" bindinput='fillMobile'></input>
+    </view>
+  </view>
+</view>
+
+<view class='item-content'>
+  <view class='fun-bar'>
+    <view class='fun-top'>
+      <text>*</text>问题描述</view>
+    <view class='fun-bottom'>
+      <textarea maxlength='100' bindinput='fillRemark' placeholder-class="placeholder" placeholder="请输入你的问题..."></textarea>
+    </view>
+  </view>
+</view>
+
+<view class='btn-content'>
+  <button type="primary" class='btn-primary' bindtap='save'>提交</button>
+</view>

@@ -1,0 +1,53 @@
+<view class="content">
+  <image src="../../../images/custom/bg.png" mode="widthFix" class="img1"></image>
+  <view class='center-content'>
+    <view class="title">
+      注册
+    </view>
+    <view class='item'>
+      <label class='label'><image src="{{focus=='mobile'?'../../../images/custom/mobile1.png':'../../../images/custom/mobile.png'}}"></image></label>
+      <view class='sub-item'>
+        <input type='number' class='input' placeholder='输入手机号'  bindtap="fillFocus" data-name="mobile" bindinput="fillMobile" maxlength="11" disabled='{{disableComp}}' />
+      </view>
+    </view>
+    <view class='item'>
+      <label class='label'><image src="{{focus=='pwd'?'../../../images/custom/pwd1.png':'../../../images/custom/pwd.png'}}"></image></label>
+      <view class='sub-item'>
+        <input type='number' class='sub-input' placeholder='输入验证码'  bindtap="fillFocus" data-name="pwd" bindinput="fillSms" maxlength='4' />
+        <button type="primary" class='sub-btn' catchtap='validMobile'  bindtap="fillFocus" data-name="pwd" disabled='{{disableComp}}'>{{smsTxt}}</button>
+      </view>
+    </view>
+    <view class='item'>
+      <label class='label'><image src="{{focus=='type'?'../../../images/custom/type1.png':'../../../images/custom/type.png'}}"></image></label>
+      <view class='sub-item'>
+        <picker bindchange="bindPickerChange" value="{{typeIndex}}"  bindtap="fillFocus" data-name="type" range-key="{{'name'}}" range="{{item}}">
+          <view class="input">
+            {{type?item[typeIndex].name:'请选择注册类目'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='item'>
+      <label class='label'><image src="{{focus=='code'?'../../../images/custom/code1.png':'../../../images/custom/code.png'}}"></image></label>
+      <view class='sub-item'>
+        <input type='number' class='input' placeholder='输入邀请码' bindtap="fillFocus" data-name="code" bindinput="fillCode" />
+      </view>
+    </view>
+    <view class='fun-content'>
+      <view>
+        <block wx:if="{{agree==true}}">
+          <image src='/images/login/check_yes.png' bindtap='agreeNo'></image>
+        </block>
+        <block wx:elif="{{agree==false}}">
+          <image src='/images/login/check_no.png' bindtap='agreeYes'></image>
+        </block>
+        已阅读并同意
+      </view>
+      <navigator bindtap="toUserRegistProtocol" hover-class="navigator-hover">《左右手用户注册协议》</navigator>
+      <navigator bindtap="toLawProtocol" hover-class="navigator-hover">《法律声明》</navigator>
+    </view>
+    <view class='btn-content'>
+      <button type="primary" class='btn-primary' bindtap='toRegist'>下一步</button>
+    </view>
+  </view>
+</view>

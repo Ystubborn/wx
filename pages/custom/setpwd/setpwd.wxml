@@ -1,0 +1,23 @@
+<view class="content"> 
+  <image src="../../../images/custom/bg.png" mode="widthFix" class="img1"></image>
+  <view class='center-content'>
+  <view class="title">
+  设置密码
+  </view>
+  <view class='item'>
+    <label class='label'><image src="{{focus=='pwd1'?'../../../images/custom/pwd1.png':'../../../images/custom/pwd.png'}}"></image></label>
+    <view class='sub-item'>
+       <input type='password' class='input'  bindtap="fillFocus" data-name="pwd1" placeholder='请输入密码' bindinput="fillPwd1"/>
+    </view>
+  </view>
+  <view class='item'>
+    <label class='label'><image src="{{focus=='pwd2'?'../../../images/custom/pwd1.png':'../../../images/custom/pwd.png'}}"></image></label>
+    <view class='sub-item'>
+       <input type='password' class='input'  bindtap="fillFocus" data-name="pwd2" placeholder='重复输入密码' bindinput="fillPwd2" />
+    </view>
+  </view> 
+  <view class='btn-content'>
+   <button type="primary" class='btn-primary' bindtap='toRegist'>提交</button>
+  </view>
+</view>
+</view>

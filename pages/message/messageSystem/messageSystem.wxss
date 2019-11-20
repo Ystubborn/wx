@@ -1,0 +1,33 @@
+page {
+  background-color: #f1f1f1;
+}
+
+.message-date {
+  width: 100%;
+  text-align: center;
+  padding: 20rpx 0 10rpx;
+}
+
+.message-content {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  padding: 20rpx;
+}
+
+.message-content .message-img image {
+  width: 100%;
+  height: 230rpx;
+  border-radius: 8px;
+}
+
+.message-content .messge-title {
+  font-size: 17px; 
+}
+
+.message-content .message-info {
+  font-size: 15px;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

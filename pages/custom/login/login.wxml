@@ -1,0 +1,27 @@
+<view class="content"> 
+  <image src="../../../images/custom/bg.png" mode="widthFix" class="img1"></image>
+  <view class='center-content'>
+  <view class="title">
+  登录
+  </view>
+    <view class='item'>
+      <label class='label'><image src="{{focus=='mobile'?'../../../images/custom/mobile1.png':'../../../images/custom/mobile.png'}}"></image></label>
+      <view class='sub-item'>
+        <input type='number' class='input' placeholder='输入手机号'  bindtap="fillFocus" data-name="mobile" maxlength="11" bindinput="fillMobile" disabled='{{disableComp}}' value='{{mobile}}' />
+      </view>
+    </view> 
+    <view class='item'>
+      <label class='label'><image src="{{focus=='pwd'?'../../../images/custom/pwd1.png':'../../../images/custom/pwd.png'}}"></image></label>
+      <view class='sub-item'>
+        <input type='password' class='input'  bindtap="fillFocus" data-name="pwd" placeholder='输入密码' bindinput="fillPwd" value='{{password}}' />
+      </view>
+    </view>
+    <view class='fun-content'>
+    <text bindtap='toForgetPwd'>忘记密码</text>
+    <view bindtap='toRegist'>还没账号？<label>去注册</label></view>
+    </view>
+    <view class='btn-content'>
+      <button type="primary" class='btn-primary' bindtap='toLogin' loading="{{loading}}">{{loginText}}</button>
+    </view>
+  </view>
+</view>

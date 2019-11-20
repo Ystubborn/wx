@@ -1,0 +1,115 @@
+.item-content {
+  background-color: #fff;
+  padding: 20rpx 30rpx 20rpx 30rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #f1f1f1; 
+}
+
+.item-content.split {
+  margin-bottom: 25rpx;
+}
+
+.item-content .item-left {
+  width: 25%;
+  color: #666;
+  font-size: 16px;
+}
+
+.item-content .item-right {
+  text-align: left; 
+}
+
+.item-content .item-right image {
+  width: 90rpx;
+  height: 90rpx;
+  float: right;
+}
+
+.item-content .item-right icon {
+  float: right;
+  font-size: 22px;
+}
+
+.item-content .item-right input {
+  height: 40px;
+  line-height: 40px;
+  text-align: left;
+}
+
+.btn-content {
+  position: fixed;
+  bottom: 30px;
+  left: 20px;
+  right: 20px;
+}
+
+/* 密码掩码模拟 */
+
+.input_row {
+  width: 650rpx;
+  margin: 0 auto;
+  height: 90rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1rpx solid #e2e2e2; 
+}
+
+.input_row.select { 
+  border-left: 1rpx solid #3696ed;
+  border-top: 1rpx solid #3696ed;
+  border-bottom: 1rpx solid #3696ed;
+  border-right: 0;
+}
+
+.input_row .pwd_item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-right: 1rpx solid #e2e2e2;
+  position: relative;
+}
+
+.input_row.select .pwd_item { 
+  border-right: 1rpx solid #3696ed; 
+}
+
+.pwd_item:nth-last-of-type(1) {
+  border-right: 0;
+}
+
+.pwd_item text {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 30rpx;
+  background-color: #555;
+}
+
+/* 文本输入框位置: 设置到左边隐藏 */
+
+.input_control {  
+  width: 0;
+  height: 0;
+  float: left;
+}
+.item-content .item-right2{
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  width: 75%;
+} 
+.item-content .item-right2 .sub-input{
+  width: 60%; 
+  height: 40px; 
+  line-height: 40px; 
+}
+.item-content .item-right2 .sub-btn{
+  background-color: #3696ed !important;
+  height: 70rpx;
+  line-height: 70rpx;  
+  font-size: 13px; 
+}

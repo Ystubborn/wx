@@ -1,0 +1,38 @@
+<view class='top-content'>
+  <view class='title-content'>充值金额</view>
+  <view class='tip-content' wx:if="{{hasActive}}">
+    <image src='../../../images/my/money.png'></image>
+    充值左右手钱包额外赠送金币和现金券，多充多送哦！
+  </view>
+  <view class='item-content'>
+    <view class='item {{val==item.fmoney?"selected":""}}' bindtap='selectMoney' data-val='{{item.fmoney}}' data-fid="{{item.fid}}" wx:for="{{items}}">
+      <view class='money'>{{item.fmoney}}</view>
+      <view class='tip' wx:if="{{item.fitems.length>0}}">送{{item.fitems[0].fvalue}}元{{item.fitems[0].fname}}</view>
+    </view>
+  </view>
+</view>
+<view class='item-content'>
+  <view class='fun-bar'>
+    <view class='fun-left'>自定义金额</view>
+    <view class='fun-center'>
+      <input placeholder='请输入充值金额' bindinput='fillMoney' type='number' value='{{val}}'></input>
+    </view>
+  </view>
+</view>
+<view class='item-content'>
+  <view class='fun-bar'>
+    <view class='fun-title'>充值方式</view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <image src='../../../images/my/wx.png'></image>微信支付</view>
+    <view class='fun-center'>
+      <image src='../../../images/my/select.png'></image>
+    </view>
+  </view>
+</view>
+
+
+<view class='btn-content'>
+  <button type="primary" class='btn-primary' bindtap='goAddOrder'>需支付{{val}}元</button>
+</view>

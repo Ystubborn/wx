@@ -1,0 +1,223 @@
+<view class='center-content'>
+  <view class='center-item'>
+    <view class='item-detail'>
+      <view class="custom">
+        <text class="left">类　　型：</text>
+        <text class="right">{{fservicetype_txt}}</text>
+      </view>
+      <view class="custom">
+        <text class="left">服务单号：</text>
+        <text class="right">{{fservicebillno}}</text>
+      </view>
+      <view class="custom">
+        <text class="left">状　　态：</text>
+        <text class="right">{{fserstatus}}</text>
+      </view>
+      <view class="custom" decode="{{true}}">
+        <text class="left">师　　傅：</text>
+        <text class="right">{{fmasterid_fname}}</text>
+      </view>
+      <view class="custom">
+        <text class="left">师傅电话：</text>
+        <text class='right' bindtap='callMobile' data-mobile='{{fmasterid_fphone}}'>{{fmasterid_fphone}}</text>
+      </view>
+      <view class="custom">
+        <text class="left">预约时间：</text>
+        <text class="right">{{fappointdate}}{{fappointenddate}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='center-content'>
+  <view class='center-item'>
+    <view class='item-top' bindtap="showPj">评价
+      <icon class="iconfont {{showPjFlag?'icon-jiantou8':'icon-youjiantou'}}"></icon>
+    </view>
+    <view class='item-detail' wx:if="{{showPjFlag}}">
+      <view class="no-process" wx:if="{{other.fevaluatedate.length==0 && other.fmevaluatedate.length==0 }}">
+        <image src="../../../images/order/noProcess.png"> </image>
+        沒有评价记录
+      </view>
+      <view class="comment" wx:if="{{other.fevaluatedate.length>0}}">
+        <view class="left-view">
+          <image src="{{other.fcustimg.length>0?other.fcustimg :'../../../images/my/user.png'}}"></image>
+        </view>
+        <view class="right-view">
+          <view class="first">
+            <text class="left">客户评价</text>
+            <text class="right">{{other.fevaluatedate}}</text>
+          </view>
+          <view class="second">
+            <icon class="iconfont icon-icon- {{other.fqualstar_fenumitem>=1?'selected':''}}"></icon>
+            <icon class="iconfont icon-icon- {{other.fqualstar_fenumitem>=2?'selected':''}}"></icon>
+            <icon class="iconfont icon-icon- {{other.fqualstar_fenumitem>=3?'selected':''}}"></icon>
+            <icon class="iconfont icon-icon- {{other.fqualstar_fenumitem>=4?'selected':''}}"></icon>
+            <icon class="iconfont icon-icon- {{other.fqualstar_fenumitem>=5?'selected':''}}"></icon>
+          </view>
+          <view class="thrid">
+            {{other.fevaludesc}}
+          </view>
+          <view class="five" wx:if="{{fqual_txt.length>0}}">
+            <text wx:for="{{fqual_txt}}" wx:for-index="idx">{{item}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="comment" style="{{other.fevaluatedate.length>0?'border-top: 1px solid #f1f1f1;padding-top:10rpx;margin-top:10rpx;':''}}" wx:if="{{other.fmevaluatedate.length>0}}">
+        <view class="left-view">
+          <image src="{{other.fmerimg.length>0?other.fmerimg :'../../../images/my/user.png'}}"></image>
+        </view>
+        <view class="right-view">
+          <view class="first">
+            <text class="left">你的评价</text>
+            <text class="right">{{other.fmevaluatedate}}</text>
+          </view>
+          <view class="second">
+            <icon class="iconfont icon-icon- {{other.fmqualstar_fenumitem>=1?'selected':''}} "></icon>
+            <icon class="iconfont icon-icon- {{other.fmqualstar_fenumitem>=2?'selected':''}}"></icon>
+            <icon class="iconfont icon-icon- {{other.fmqualstar_fenumitem>=3?'selected':''}}"></icon>
+            <icon class="iconfont icon-icon- {{other.fmqualstar_fenumitem>=4?'selected':''}}"></icon>
+            <icon class="iconfont icon-icon- {{other.fmqualstar_fenumitem>=5?'selected':''}}"></icon>
+          </view>
+          <view class="thrid">
+            {{other.fmevaludesc}}
+          </view>
+          <view class="five" wx:if="{{fmqual_txt.length>0}}">
+            <text wx:for="{{fmqual_txt}}" wx:for-index="idx">{{item}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='center-content'>
+  <view class='center-item'>
+    <view class='item-top' bindtap="showWghb">完工汇报
+      <icon class="iconfont {{showWghbFlag?'icon-jiantou8':'icon-youjiantou'}}"></icon>
+    </view>
+    <view class='item-detail' wx:if="{{showWghbFlag}}">
+      <view class="no-process" wx:if="{{other.freportdate.length==0 && other.fnote.length==0 }}">
+        <image src="../../../images/order/noProcess.png"> </image>
+        沒有完工汇报
+      </view>
+      <view class="img-view" wx:if="{{other.freportdate.length>0}}">
+        <view class="img-info">
+          <text class="left-info">完工图片</text>
+          <text class="right-info">{{other.freportdate}}</text>
+        </view>
+        <view class="img-list" wx:if="{{fdoneimageurl_all.length>0}}">
+          <image wx:for="{{fdoneimageurl_all}}" bindtap="showImg" data-imgs="{{fdoneimageurl_all}}" src="{{item}}"></image>
+        </view>
+      </view>
+      <view class="custom" wx:if="{{other.fnote.length>0}}">
+        <text class="left">完工说明：</text>
+        <text class="right">{{other.fnote}} </text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='center-content'>
+  <view class='center-item'>
+    <view class='item-top' bindtap="showFkjl">反馈记录
+      <icon class="iconfont {{showFkjlFlag?'icon-jiantou8':'icon-youjiantou'}}"></icon>
+    </view>
+    <view class='item-detail' wx:if="{{showFkjlFlag}}">
+      <view class="no-process" wx:if="{{feedBackOrders.length==0 }}">
+        <image src="../../../images/order/noProcess.png"> </image>
+        沒有反馈记录
+      </view>
+      <view class="{{feedBackOrders.length==index+1?'split-no':'split'}}" wx:for="{{feedBackOrders}}" wx:for-index="index">
+        <view class="img-view" wx:if="{{item.fimages.length>0}}">
+          <view class="img-info">
+            <text class="left-info">反馈图片</text>
+          </view>
+          <view class="img-list">
+            <image wx:for="{{item.fimages}}" bindtap="showImg" data-imgs="{{item.fimages}}" wx:for-item="img" src="{{img}}"></image>
+          </view>
+        </view>
+        <view class="custom">
+          <text class="left">反馈状态：</text>
+          <text class="right">{{item.fserstatus_txt}}</text>
+        </view>
+        <view class="custom">
+          <text class="left">反馈问题：</text>
+          <text class="right">{{item.fsprotype_fenumitem}}</text>
+        </view>
+        <view class="custom">
+          <text class="left">问题描述：</text>
+          <text class="right">{{item.fprodesript}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='center-content'>
+  <view class='center-item'>
+    <view class='item-top' bindtap="showTsjl">投诉记录
+      <icon class="iconfont {{showTsjlFlag?'icon-jiantou8':'icon-youjiantou'}}"></icon>
+    </view>
+    <view class='item-detail' wx:if="{{showTsjlFlag}}">
+      <view class="no-process" wx:if="{{complaintOrders.length==0 }}">
+        <image src="../../../images/order/noProcess.png"> </image>
+        沒有投诉记录
+      </view>
+      <view class="{{complaintOrders.length==index+1?'split-no':'split'}}" wx:for="{{complaintOrders}}" wx:for-index="index">
+        <view class="img-view" wx:if="{{item.fimageurl.length>0}}">
+          <view class="img-info">
+            <text class="left-info">投诉凭证</text>
+          </view>
+          <view class="img-list">
+            <image wx:for="{{item.fimageurl}}" bindtap="showImg" data-imgs="{{item.fimageurl}}" wx:for-item="img" src="{{img}}"></image>
+          </view>
+        </view>
+        <view class="custom">
+          <text class="left">投诉状态：</text>
+          <text class="right">已生效</text>
+        </view>
+        <view class="custom">
+          <text class="left">投诉项目：</text>
+          <text class="right">{{item.fcomplaintitem_fname}}</text>
+        </view>
+        <view class="custom">
+          <text class="left">投诉内容： </text>
+          <text class="right">{{item.fcomplain}}</text> </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='center-content'>
+  <view class='center-item'>
+    <view class='item-top' bindtap="showTkjl">退款记录
+      <icon class="iconfont {{showTkjlFlag?'icon-jiantou8':'icon-youjiantou'}}"></icon>
+    </view>
+    <view class='item-detail' wx:if="{{showTkjlFlag}}">
+      <view class="no-process" wx:if="{{refundOrders.length==0 }}">
+        <image src="../../../images/order/noProcess.png"> </image>
+        沒有退款记录
+      </view>
+      <view class="{{refundOrders.length==index+1?'split-no':'split'}}" wx:for="{{refundOrders}}" wx:for-index="index">
+        <view class="img-view" wx:if="{{item.fimageurl.length>0}}">
+          <view class="img-info">
+            <text class="left-info">退款凭证</text>
+          </view>
+          <view class="img-list">
+            <image wx:for="{{item.fimageurl}}" bindtap="showImg" data-imgs="{{item.fimageurl}}" wx:for-item="img" src="{{img}}"></image>
+          </view>
+        </view>
+        <view class="custom">
+          <text class="left">退款状态：</text>
+          <text class="right">{{item.frefundstatus_fenumitem}}</text>
+        </view>
+        <view class="custom">
+          <text class="left">退款原因：</text>
+          <text class="right">{{item.fchangereasonenum_fenumitem}}</text>
+        </view>
+        <view class="custom">
+          <text class="left">退款说明： </text>
+          <text class="right">{{item.frefundreason}}</text> </view>
+      </view>
+    </view>
+  </view>
+</view>

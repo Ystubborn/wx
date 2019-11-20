@@ -1,0 +1,22 @@
+<view class='top-content'> 
+  <view class='first'>￥{{balance}}</view>
+  <view class='second'>钱包余额</view>
+  <view class='third'><button bindtap="goCash">提现</button><button bindtap='goRecharge'>充值</button></view>
+</view>
+
+<view class='fun-content'> 
+  <view class='fun-item' bindtap='goWalletList'>
+    <view class='item1'>
+      <image src='../../../images/my/fun2.png'></image>
+    </view>
+    <view class='item2'>账单明细</view>
+    <view class='item3 iconfont icon-youjiantou'></view>
+  </view> 
+  <view class='fun-item' bindtap='goPayPwd'>
+    <view class='item1'>
+      <image src='../../../images/my/fun1.png'></image>
+    </view>
+    <view class='item2'>钱包密码</view>
+    <view class='item3 iconfont icon-youjiantou'></view>
+  </view> 
+</view>

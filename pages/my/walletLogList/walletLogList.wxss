@@ -1,0 +1,167 @@
+.mask {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(50, 50, 50, 0.6);
+  z-index: 999;
+}
+
+.searchBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border-bottom: 1rpx solid #f1f1f1;
+  z-index: 1001;
+}
+
+.searchBar .firstBar {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.searchBar .firstBar .picker {
+  padding: 5px 15px;
+  border: 1px solid #f1f1f1;
+  font-size: 16px;
+}
+
+.searchBar .firstBar .split {
+  padding: 5px 10px;
+}
+
+.searchBar .firstBar .left {
+  display: flex;
+  flex-direction: row;
+}
+
+.searchBar .firstBar .right {
+  padding: 2px 10px;
+}
+
+.searchBar .firstBar .right icon {
+  vertical-align: baseline;
+}
+
+.searchBar .secondBar {
+  border-top: 1px solid #f1f1f1;
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+  padding: 20rpx 0;
+}
+
+.searchBar .secondBar view {
+  text-align: center;
+  width: 160rpx;
+  padding: 5px 10px;
+  border: 1px solid #f1f1f1;
+  border-radius: 25px;
+  margin: 15rpx 20rpx 10rpx;
+}
+
+.searchBar .secondBar view.selected {
+  color: #fff;
+  background-color: #3696ed;
+}
+.items {
+  margin-top: 55px;
+}
+
+.items .tongji{
+  padding: 20rpx 0 15rpx;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #FFF;
+  margin-bottom: 20rpx;
+}
+.items .tongji .type{
+  display: flex;
+  flex-direction: column;
+  width: 33.3%;
+}
+.items .tongji .type .name{
+  text-align: center;
+  color: #999999;
+  font-size: 15px;
+
+}
+.items .tongji .type .val{
+  text-align: center;
+  color: #3696ED;
+  font-size: 17px;
+  line-height: 70rpx;
+}
+.items .item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 10px 0;
+  border-bottom: 1rpx solid #f1f1f1;
+}
+
+.items .item .left {
+  width: 15%;
+  text-align: center;
+  padding-left: 10px;
+}
+
+.items .item .left text {
+  display: block;
+  width: 60rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #ffa152;
+  color: #fff;
+  margin: 10px;
+}
+
+.items .item .center {
+  width: 55%;
+}
+
+.items .item .center .first {
+  color: #333;
+  font-size: 16px;
+}
+
+.items .item .center .second {
+  color: #999;
+  font-size: 13px;
+}
+
+.items .item .right {
+  width: 30%;
+  line-height: 90rpx;
+  color: #fb5c5c;
+  font-size: 17px;
+  text-align: right;
+  padding-right: 25rpx;
+}
+
+.items .item .right {
+  width: 30%;  
+  text-align: right;
+  padding-right: 25rpx;
+}
+
+.items .item .right .status{ 
+  line-height: 30rpx;
+  color: #999999;
+  font-size: 13px;  
+}
+.items .item .right .money{ 
+  line-height: 60rpx;
+  color: #fb5c5c;
+  font-size: 17px; 
+}

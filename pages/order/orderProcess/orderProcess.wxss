@@ -1,0 +1,144 @@
+.center-content {
+  width: 750rpx;
+  margin-bottom: 25rpx;
+}
+
+.center-content .center-item {
+  padding: 0 20rpx;
+  background-color: #fff;
+}
+
+.center-content .center-item .item-top {
+  line-height: 100rpx;
+  background-color: #fff;
+  font-size: 17px;
+}
+
+.center-content .center-item .item-top  icon {
+  float: right;
+  font-size: 28px;
+}
+
+.center-content .center-item .split {
+  border-bottom: 1px solid #f1f1f1;
+  padding: 10rpx 0;
+}
+.center-content .center-item .split-no { 
+  padding: 10rpx 0;
+}
+.center-content .center-item .item-detail {
+  padding-top: 10rpx;
+  padding-bottom: 20rpx;
+  border-top: 1px solid #eee;
+}
+
+.center-content .center-item  .item-detail .no-process {
+  padding: 20rpx 0;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+}
+
+.center-content .center-item  .item-detail .no-process image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.center-content .center-item .item-detail .custom {
+  font-size: 15px;
+  line-height: 60rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.center-content .center-item .item-detail .custom  text {
+  color: #777;
+}
+
+.center-content .center-item .item-detail .custom  text.left {
+  color: #777;
+  width: 160rpx;
+}
+
+.center-content .center-item .item-detail .custom  text.right {
+  color: #333;
+  width: 550rpx;
+}
+
+.center-content .center-item  .item-detail .img-view {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10rpx;
+}
+
+.center-content .center-item  .item-detail .img-view .img-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  line-height: 60rpx;
+  color: #666;
+}
+
+.center-content .center-item  .item-detail .img-view .img-list image {
+  float: left;
+  width: 155rpx;
+  height: 155rpx;
+  border-radius: 6px;
+  margin: 10rpx 20rpx 10rpx 0;
+  border: 1px solid #f1f1f1;
+}
+
+.center-content .center-item  .item-detail .comment {
+  padding-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.center-content .center-item  .item-detail .comment .left-view {
+  width: 140rpx;
+}
+
+.center-content .center-item  .item-detail .comment .left-view image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.center-content .center-item  .item-detail .comment .right-view{ 
+  width: 570rpx;
+}
+.center-content .center-item  .item-detail .comment .right-view .first {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 570rpx;
+}
+
+.center-content .center-item  .item-detail .comment .right-view .first .left {
+  color: #333;
+}
+
+.center-content .center-item  .item-detail .comment .right-view .first .right {
+  color: #999;
+}
+
+.center-content .center-item  .item-detail .comment .right-view .second {
+  color: #999;
+}
+
+.center-content .center-item  .item-detail .comment .right-view .second .selected {
+  color: #fdbd28;
+}
+
+.center-content .center-item  .item-detail .comment .right-view .thrid {
+  color: #333;
+}
+
+.center-content .center-item  .item-detail .comment .right-view .five text {
+  padding: 10rpx 20rpx;
+  background-color: #3696ed;
+  color: #fff;
+  border-radius: 25px;
+  margin: 10rpx;
+  font-size: 11px;
+  float: left;
+}

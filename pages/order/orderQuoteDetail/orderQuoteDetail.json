@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "师傅报价",
+  "usingComponents": {},
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50
+}

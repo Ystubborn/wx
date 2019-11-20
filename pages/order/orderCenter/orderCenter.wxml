@@ -1,0 +1,83 @@
+<view class="home-wrap">
+  <view class="track-input-block">
+    <icon type="search" size="15" color="gray" />
+    <input class="track-input" placeholder="搜索" bindconfirm="search" bindinput="fillkeyword" confirm-type="search" />
+  </view>
+
+  <view class="workbench">
+    <view class='titleBar'>
+      <text class="title">我的订单</text>
+      <text class="more" data-status='0'  bindtap='goOrderList'>全部订单<text class='iconfont icon-youjiantou'></text></text>
+    </view>
+    <view class="list">
+      <view class="items" data-status='1' bindtap='goOrderList'>
+        <image src="../../../images/order/fun_1.png"></image>
+        <text class='title'>待报价</text>
+        <text class='weui-badge' wx:if="{{sht_serstatus03 > 0 }}">{{sht_serstatus03}}</text>
+      </view>
+      <view class="items" data-status='2'  bindtap='goOrderList'>
+        <image src="../../../images/order/fun_2.png"></image>
+        <text class='title'>待雇佣</text>
+        <text class='weui-badge' wx:if="{{sht_serstatus10 > 0 }}">{{sht_serstatus10}}</text>
+      </view>
+      <view class="items" data-status='3'   bindtap='goOrderList'>
+        <image src="../../../images/order/fun_3.png"></image>
+        <text class='title'>待支付</text>
+        <text class='weui-badge' wx:if="{{sht_serstatus11 > 0 }}">{{sht_serstatus11}}</text>
+      </view>
+      <view class="items" data-status='4'   bindtap='goOrderList'>
+        <image src="../../../images/order/fun_4.png"></image>
+        <text class='title'>待预约</text>
+        <text class='weui-badge' wx:if="{{sht_serstatus12 > 0 }}">{{sht_serstatus12}}</text>
+      </view>
+      <view class="items"  data-status='5'  bindtap='goOrderList'>
+        <image src="../../../images/order/fun_5.png"></image>
+        <text class='title'>待上门</text>
+        <text class='weui-badge' wx:if="{{sht_serstatus13 > 0 }}">{{sht_serstatus13}}</text>
+      </view>
+      <view class="items"  data-status='6'  bindtap='goOrderList'>
+        <image src="../../../images/order/fun_6.png"></image>
+        <text class='title'>服务中</text>
+        <text class='weui-badge' wx:if="{{sht_serstatus06 > 0 }}">{{sht_serstatus06}}</text>
+      </view>
+      <view class="items" data-status='7'  bindtap='goOrderList'>
+        <image src="../../../images/order/fun_7.png"></image>
+        <text class='title'>待验收</text>
+        <text class='weui-badge' wx:if="{{sht_serstatus07 > 0 }}">{{sht_serstatus07}}</text>
+      </view>
+      <view class="items"  data-status='8'  bindtap='goOrderList'>
+        <image src="../../../images/order/fun_8.png"></image>
+        <text class='title'>交易完成</text>
+      </view>
+    </view> 
+  </view>
+  <view class="workbench">
+    <view class="list">
+      <view class="items"  bindtap='goProblemOrderList'>
+        <image src="../../../images/order/fun_9.png"></image>
+        <text class='title'>问题单</text>
+        <text class='weui-badge' wx:if="{{ffeed > 0 }}">{{ffeed}}</text>
+      </view>
+      <view class="items"  bindtap='goPatchOrderList'>
+        <image src="../../../images/order/fun_10.png"></image>
+        <text class='title'>补价单</text>
+        <text class='weui-badge' wx:if="{{fchange > 0 }}">{{fchange}}</text>
+      </view>
+      <view class="items" bindtap='goSurchargeOrderList'>
+        <image src="../../../images/order/fun_11.png"></image>
+        <text class='title'>附加费用</text>
+        <text class='weui-badge' wx:if="{{fadditional > 0 }}">{{fadditional}}</text>
+      </view>
+      <view class="items" bindtap='goSuspendOrderList'>
+        <image src="../../../images/order/fun_12.png"></image>
+        <text class='title'>挂起单</text>
+        <text class='weui-badge' wx:if="{{fishang > 0 }}">{{fishang}}</text>
+      </view>
+    </view>
+    <view class='tipContent'>
+      <view class="tip">
+        投诉、退款、问题单处理请到电脑端进行操作，小程序暂不支持此功能
+      </view>
+    </view>
+  </view>
+</view>

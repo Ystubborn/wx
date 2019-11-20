@@ -1,0 +1,109 @@
+.item-content {
+  background-color: #fff;
+  margin-bottom: 25rpx;
+  float: left;
+  padding-bottom: 25rpx;
+  width: 100%;
+}
+
+.item-content .title-content {
+  height: 40rpx;
+  padding: 30rpx;
+  width: 710rpx;
+}
+
+.item-content .title-content .title-info {
+  border-left: 3px solid #3696ed;
+  padding: 0 20rpx;
+  line-height: 45rpx;
+  font-size: 17px;
+  float: left;
+}
+
+.item-content .fun-bar {
+  border-top: 1px solid #f1f1f1;
+  float: left;
+  width: 730rpx;
+  padding: 20rpx 10rpx 0;
+}
+
+.item-content .fun-bar .fun-left {
+  width: 28%;
+  height: 88rpx;
+  float: left;
+  text-align: left;
+  padding-left: 10rpx;
+}
+
+.item-content .fun-bar .fun-left text {
+  color: #d22f1c;
+  vertical-align: middle;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.item-content .fun-bar .fun-center {
+  width: 62%;
+  float: left;
+  line-height: 70rpx;
+}
+
+.item-content .fun-bar .fun-center input {
+  height: 70rpx;
+  padding-left: 10rpx;
+  text-align: right;
+}
+
+.item-content .fun-bar .fun-center .picker {
+  padding-left: 10rpx;
+  text-align: right;
+}
+
+.item-content .fun-bar .fun-center .select {
+  border: 1px solid #dcdada;
+  border-radius: 10rpx;
+  float: left;
+  width: 25%;
+  margin-left: 20rpx;
+  text-align: right;
+}
+
+.item-content .fun-bar .fun-center input {
+  text-align: right;
+}
+
+.item-content .fun-bar .fun-right {
+  width: 8%;
+  float: right;
+  line-height: 70rpx;
+  font-size: 20px;
+}
+
+.item-content .fun-top {
+  line-height: 90rpx;
+  border-bottom: 1px solid #f1f1f1;
+  padding-left: 10rpx;
+}
+
+.item-content .fun-top  text {
+  color: #d22f1c;
+  vertical-align: middle;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.item-content .fun-bottom {
+  padding: 20rpx;
+}
+
+.item-content .fun-bottom textarea {
+  width: 710rpx;
+  height: 120px;
+}
+
+.btn-content {
+  position: fixed;
+  bottom: 30px;
+  left: 20px;
+  right: 20px;
+}

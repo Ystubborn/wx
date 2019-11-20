@@ -1,0 +1,9 @@
+<view class='title-content'>
+  <view class='title-info'>请选择期望服务日期</view>
+</view>
+<view class="fun-content">
+  <view class="fun-item {{item.date == date ?'selected':''}}" wx:for="{{dateList}}" wx:key="{{idx}}" wx:for-index="idx" wx:for-item="item" bindtap='selectDate'   data-date='{{item.date}}'   data-id='{{idx}}'>
+    <view class='date'>{{item.dateSort}}</view>
+    <view class='week'>{{item.isToday?'今天':item.week}}</view>
+  </view>
+</view>

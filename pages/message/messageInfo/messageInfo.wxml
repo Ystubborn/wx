@@ -1,0 +1,22 @@
+<view class='message-content' wx:for="{{items}}" wx:key="id">
+  <view class='left'>
+    <span class="iconfont icon-dian selected"></span>
+  </view>
+  <view class='center'>
+    <view class='messge-title'>订单信息</view>
+    <view class='message-detail'>
+      <view class='message-left'>
+        <view class='message-date'>2019-09-03 22:02:15</view>
+        <view class='message-info'>你的订单更新了进度，请及时查看！</view>
+      </view>
+      <view class='message-right iconfont icon-youjiantou'></view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{nomoredata}}" class='no-more-data'>
+  没有更多了!
+</view>
+<view wx:if="{{nodata}}" class='no-data'>
+  <image src="../../../images/message/message.png"></image>
+  <view>暂无更多消息</view>
+</view>

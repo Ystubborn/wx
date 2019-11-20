@@ -1,0 +1,30 @@
+@import '../../../style/custom.wxss';
+  
+.content { 
+  padding-bottom: 30rpx;
+}
+.fun-content {
+  padding: 30rpx 0; 
+  color:#555;
+  font-size: 13px;
+}
+
+.fun-content navigator {
+  float: left;
+  color: #3696ed;
+}
+.fun-content view{
+  float: left;
+}
+.fun-content view image{
+  width: 28rpx;
+  height: 28rpx; 
+}
+ 
+.placeHold{
+  color: #666;
+}
+
+.btn-content{
+  margin-top: 30rpx;
+}

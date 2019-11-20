@@ -1,0 +1,38 @@
+<view class='top-content'>
+  <view class='title-content'>打赏金额</view>
+  <view class='item-content'>
+    <view class='item {{val==20?"selected":""}}' bindtap='selectMoney' data-val='20'>
+      <view class='money'>20</view>
+    </view>
+    <view class='item {{val==50?"selected":""}}' bindtap='selectMoney' data-val='50'>
+      <view class='money'>50</view>
+    </view>
+    <view class='item {{val==100?"selected":""}}' bindtap='selectMoney' data-val='100'>
+      <view class='money'>100</view>
+    </view>
+  </view>
+</view>
+<view class='item-content'>
+  <view class='fun-bar'>
+    <view class='fun-left'>自定义金额</view>
+    <view class='fun-center'>
+      <input placeholder='请输入打赏金额' bindinput='fillMoney' type='number' value='{{val}}'></input>
+    </view>
+  </view>
+</view>
+<view class='item-content'>
+  <view class='fun-bar'>
+    <view class='fun-title'>充值方式</view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <image src='../../../images/my/wx.png'></image>微信支付</view>
+    <view class='fun-center'>
+      <image src='../../../images/my/select.png'></image>
+    </view>
+  </view>
+</view>
+ 
+<view class='btn-content'>
+  <button type="primary" class='btn-primary' bindtap='goAddOrder'>需支付{{val}}元</button>
+</view>

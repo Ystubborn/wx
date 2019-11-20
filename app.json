@@ -1,0 +1,109 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/custom/index/index",
+    "pages/my/usableCoupon/usableCoupon",
+    "pages/my/walletLogList/walletLogList",
+    "pages/my/walletLogDetail/walletLogDetail",
+    "pages/order/problemOrderAccept/problemOrderAccept",
+    "pages/order/surchargeOrderBack/surchargeOrderBack",
+    "pages/order/suspendOrderDetail/suspendOrderDetail",
+    "pages/order/suspendOrderList/suspendOrderList",
+    "pages/order/surchargeOrderDetail/surchargeOrderDetail",
+    "pages/order/surchargeOrderList/surchargeOrderList",
+    "pages/order/problemOrderList/problemOrderList",
+    "pages/order/problemOrderDetail/problemOrderDetail",
+    "pages/order/patchOrderDetail/patchOrderDetail",
+    "pages/order/patchOrderList/patchOrderList",
+    "pages/order/patchOrderBack/patchOrderBack",
+    "pages/my/cashCoupon/cashCoupon",
+    "pages/protocol/protocol", 
+    "pages/custom/login/login",
+    "pages/my/feedback/feedback",
+    "pages/my/help/help",
+    "pages/my/helpList/helpList",
+    "pages/my/config/config",
+    "pages/my/myCenter/myCenter",
+    "pages/my/payPwd/payPwd",
+    "pages/my/loginPwd/loginPwd",
+    "pages/my/changeMobile/changeMobile",
+    "pages/my/wallet/wallet",
+    "pages/my/person/person",
+    "pages/my/recharge/recharge",
+    "pages/order/feedback/feedback",
+    "pages/order/comment/comment",
+    "pages/order/reward/reward",
+    "pages/order/orderQuoteDetail/orderQuoteDetail",
+    "pages/order/orderProcess/orderProcess",
+    "pages/message/messageInfo/messageInfo",
+    "pages/message/messageSystem/messageSystem",
+    "pages/order/orderQuote/orderQuote",
+    "pages/order/orderDetail/orderDetail", 
+    "pages/order/orderList/orderList",
+    "pages/order/orderCenter/orderCenter",
+    "pages/order/addOrder7/addOrder7",
+    "pages/order/addOrder6/addOrder6",
+    "pages/order/addOrder5/addOrder5",
+    "pages/order/addOrder4/addOrder4",
+    "pages/order/addOrder3/addOrder3",
+    "pages/order/addOrder2/addOrder2",
+    "pages/order/addOrder1/addOrder1",
+    "pages/custom/regist/regist",
+    "pages/order/addOrder0/addOrder0",
+    "pages/custom/setpwd/setpwd", 
+    "pages/custom/forgetpwd/forgetpwd",
+    "pages/custom/web/web",
+    "pages/message/messageCenter/messageCenter"
+  ],
+  "window": {
+    "navigationBarTitleText": "左右手·商户端",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#3696ED",
+    "backgroundColor": "#f1f1f1"
+  },
+  "tabBar": {
+    "custom": false,
+    "color": "#7F8389",
+    "selectedColor": "#3696ED",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab/tab_1_0.png",
+        "selectedIconPath": "images/tab/tab_1_1.png"
+      },
+      {
+        "pagePath": "pages/order/orderCenter/orderCenter",
+        "text": "订单",
+        "iconPath": "images/tab/tab_2_0.png",
+        "selectedIconPath": "images/tab/tab_2_1.png"
+      },
+      {
+        "pagePath": "pages/order/addOrder0/addOrder0",
+        "text": "去下单",
+        "iconPath": "images/tab/tab_5_0.png",
+        "selectedIconPath": "images/tab/tab_5_1.png"
+      },
+      {
+        "pagePath": "pages/message/messageCenter/messageCenter",
+        "text": "消息",
+        "iconPath": "images/tab/tab_3_0.png",
+        "selectedIconPath": "images/tab/tab_3_1.png"
+      },
+      {
+        "pagePath": "pages/my/myCenter/myCenter",
+        "text": "我的",
+        "iconPath": "images/tab/tab_4_0.png",
+        "selectedIconPath": "images/tab/tab_4_1.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+}

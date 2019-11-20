@@ -1,0 +1,59 @@
+page {
+  background-color: #f1f1f1;
+}
+ 
+.message-content {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  margin-top: 20rpx;
+  padding: 25rpx 15rpx 25rpx 30rpx;
+}
+
+.message-content .left {
+  width: 5%;
+}
+
+.message-content .left .selected{
+  color: #3696ED;
+}
+ 
+.message-content .center {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.message-content .messge-title {
+  font-size: 16px;
+}
+
+.message-content .messge-title span {
+  font-size: 16px;
+}
+
+.message-content .message-detail {
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.message-content .message-detail .message-left {
+  width: 95%;
+}
+
+.message-content .message-detail .message-left .message-date {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.message-content .message-detail .message-left .message-info {
+  color: #333;
+}
+
+.message-content .message-detail .message-right {
+  width: 5%;
+  text-align: right;
+  font-size: 18px;
+}

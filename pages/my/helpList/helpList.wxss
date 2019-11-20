@@ -1,0 +1,68 @@
+
+.track-input-block {
+  position: relative;
+  padding: 20rpx 0;
+}
+
+.track-input-block icon {
+  position: absolute;
+  left: 46rpx;
+  top: 42rpx;
+}
+
+.track-input {
+  background-color: #fff;
+  width: 80%;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  margin: 0 auto;
+  height: 70rpx;
+  text-align: left;
+  padding: 0rpx 30rpx 0rpx 60rpx;
+}
+.fun-content {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30rpx;
+}
+
+.fun-content .fun-item {
+  height: 80rpx;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #fff;
+  margin-bottom: 2rpx;
+} 
+.fun-content .fun-item .item1 {
+  font-size: 16px;
+  width: 80%;
+  line-height: 80rpx;
+}
+
+.fun-content .fun-item .item2 {
+  width: 18%;
+  line-height: 80rpx;
+}
+
+.fun-content .fun-item .item2 button {
+  background-color: #ed7612;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 15px;
+  width: 85px;
+  float: left;
+}
+
+.fun-content .fun-item .item2 icon {
+  float: right;
+  font-size: 20px;
+}
+
+.fun-content .fun-detail{
+  padding: 30rpx;
+  background-color: #FFF;
+  color: #999999;
+  margin-bottom: 2rpx;
+}

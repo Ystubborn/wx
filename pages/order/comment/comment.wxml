@@ -1,0 +1,53 @@
+<view class='item-content'>
+  <view class='fun-bar'>
+    <view class="item-1">
+      <image src="../../../images/order/comment.png"></image>
+    </view>
+    <view class="item-2">服务已完成</view>
+    <view class="item-3">请您对师傅的安装质量及服务进行评价</view>
+    <view class="item-4">
+      <icon bindtap="changeScore" data-score="1" class="iconfont icon-icon- {{score>=1?'selected':''}}"></icon>
+      <icon bindtap="changeScore" data-score="2" class="iconfont icon-icon- {{score>=2?'selected':''}}"></icon>
+      <icon bindtap="changeScore" data-score="3" class="iconfont icon-icon- {{score>=3?'selected':''}}"></icon>
+      <icon bindtap="changeScore" data-score="4" class="iconfont icon-icon- {{score>=4?'selected':''}}"></icon>
+      <icon bindtap="changeScore" data-score="5" class="iconfont icon-icon- {{score>=5?'selected':''}}"></icon>
+    </view>
+    <view class="item-5">{{scoreText}}</view>
+    <view class="item-6">
+      <text wx:for="{{items}}" wx:for-index="index" wx:key="{{name}}" class="{{item.clazz}}" wx:if="{{ (score<4 && index<5) || (score>3 && index>4) }}"  data-id="{{index}}" bindtap="selectTag">{{item.name}}</text> 
+    </view>
+  </view>
+</view>
+<view class='item-content'>
+  <view class='fun-bar'>
+    <view class='fun-top'>
+      我要评价</view>
+    <view class='fun-bottom'>
+      <textarea maxlength='100'  wx:if="{{!feedbackResultFlag}}" bindinput='fillRemark' placeholder-class="placeholder" placeholder="请输入你的问题..."></textarea>
+      <text wx:if="{{feedbackResultFlag}}">{{remark}}</text>
+    </view>
+  </view>
+</view> 
+<view class='btn-content'>
+  <button type="primary" class='btn-primary' catchtap="save">提交评价</button>
+</view>
+
+<view class="mask" wx:if="{{feedbackResultFlag}}">
+  <view class='maskContent'>
+    <view class='title'>
+      评价成功
+      <icon class='iconfont icon-iconfontguanbi ruleHide' bindtap='hideFeedbackResult'></icon>
+    </view>
+    <view class='center'>
+      <view class="result-view">
+        <image src="../../../images/order/feedback.png"></image>
+        <view>{{score==5?'是否打赏给师傅?':'感谢您的支持'}}</view>
+      </view>
+      <view class="btn-view">
+        <button type="primary" class='sub-left-btn' wx:if="{{score==5}}" bindtap='hideFeedbackResult'>不打赏</button>
+        <button type="primary" class='sub-right-btn' wx:if="{{score==5}}" bindtap='rewardMaster'>打赏师傅</button>
+        <button type="primary" class='sub-left-btn' wx:if="{{score!=5}}" bindtap='hideFeedbackResult'>确定</button> 
+      </view>
+    </view>
+  </view>
+</view>

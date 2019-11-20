@@ -1,0 +1,64 @@
+page {
+  background-color: #fff;
+}
+
+.item-content {
+  margin-bottom: 30rpx;
+  float: left;
+  padding: 80rpx 30rpx 40rpx;
+  width: 690rpx;
+  text-align: center;
+}
+
+.item-content  .success-img {
+  width: 152rpx;
+  height: 115rpx;
+}
+
+.item-content  .qrcode-img {
+  width: 256rpx;
+  height: 256rpx;
+  margin-top: 50rpx;
+}
+
+.item-content  .title {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 80rpx;
+}
+
+.item-content  .desc {
+  font-size: 15px;
+  color: #999;
+}
+
+.item-content  .desc text {
+  color: #3696ed;
+}
+
+.bottom-btn {
+  padding: 0 30rpx;
+  width: 690rpx;
+  height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.bottom-btn .sub-right-btn {
+  width: 260rpx;
+  background-color: #3696ed !important;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 15px;
+}
+
+.bottom-btn .sub-left-btn {
+  width: 260rpx;
+  color: #3696ed;
+  border: 1px solid #3696ed;
+  background-color: #fff !important;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 15px;
+}

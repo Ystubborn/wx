@@ -1,0 +1,15 @@
+
+@import '../../../style/custom.wxss';
+ 
+
+.fun-content {
+  padding: 20rpx 10rpx; 
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end
+}
+
+.fun-content  label {
+  color: #3696ed;
+}
+

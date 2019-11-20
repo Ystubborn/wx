@@ -1,0 +1,103 @@
+/**index.wxss**/
+
+.home-wrap {
+  background: #f1f1f1;
+}
+
+.track-input-block {
+  position: relative;
+  padding: 20rpx 0;
+}
+
+.track-input-block icon {
+  position: absolute;
+  left: 46rpx;
+  top: 42rpx;
+}
+
+.track-input {
+  background-color: #fff;
+  width: 80%;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  margin: 0 auto;
+  height: 70rpx;
+  text-align: left;
+  padding: 0rpx 30rpx 0rpx 60rpx;
+}
+
+.workbench {
+  font-size: 20rpx;
+  background: #fff;
+  padding-top: 30rpx;
+  padding-bottom: 10rpx;
+  margin-bottom: 25rpx;
+  color: #333;
+}
+
+.workbench .titleBar {
+  display: block;
+  margin-bottom: 20rpx;
+  padding: 0 20rpx;
+  height: 60rpx;
+}
+
+.workbench .titleBar  .title {
+  font-size: 16px;
+  font-weight: bold;
+  float: left;
+}
+
+.workbench .titleBar  .more {
+  float: right;
+  font-size: 30rpx;
+  display: block;
+}
+
+.workbench .list {
+  width: 100%;
+  padding-top: 20rpx;
+}
+
+.workbench .items {
+  width: 25%;
+  text-align: center;
+  display: inline-block;
+  margin-top: 10rpx;
+  margin-bottom: 50rpx;
+  position: relative;
+}
+
+.workbench .items image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.workbench .items image.service-icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.workbench .items .title {
+  display: block;
+  text-align: center;
+  margin-top: 5rpx;
+  font-size: 15px;
+}
+
+.workbench .items .weui-badge {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+}
+
+.workbench .tipContent {
+  padding: 0 30rpx;
+  margin-bottom: 90rpx;
+}
+
+.workbench .tipContent .tip {
+  padding: 20rpx;
+  font-size: 26rpx;
+  background-color: rgba(245, 245, 245, 1);
+}

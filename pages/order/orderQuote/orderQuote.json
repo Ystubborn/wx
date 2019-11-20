@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "抢单列表",
+  "usingComponents": {},
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50
+}

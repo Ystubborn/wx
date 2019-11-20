@@ -1,0 +1,32 @@
+<view class='item-content'>   
+  <view class='fun-bar'>
+    <view class='fun-top'>
+      <text>*</text>驳回原因</view>
+    <view class='fun-bottom'>
+      <textarea maxlength='100'  wx:if="{{!feedbackResultFlag}}" bindinput='fillRemark' placeholder-class="placeholder" placeholder="请输入你的驳回说明..."></textarea>
+      <text wx:if="{{feedbackResultFlag}}">{{remark}}</text>
+    </view>
+  </view>
+</view> 
+<view class='btn-content'>
+  <button type="primary" class='btn-primary' bindtap='save'>提交</button>
+</view>
+
+<view class="mask" wx:if="{{feedbackResultFlag}}">
+  <view class='maskContent'>
+    <view class='title'>
+      驳回成功
+      <icon class='iconfont icon-iconfontguanbi ruleHide' bindtap='hideFeedbackResult'></icon>
+    </view>
+    <view class='center'>
+      <view class="result-view">
+        <image src="../../../images/order/patchOrderBack.png"></image>
+        <view>附加费申请已驳回</view>
+      </view>
+      <view class="btn-view">  
+        <button type="primary" class='sub-left-btn' bindtap='toIndex'>返回首页</button>
+        <button type="primary" class='sub-right-btn' bindtap='hideFeedbackResult'>查看订单</button>
+      </view>
+    </view>
+  </view>
+</view>

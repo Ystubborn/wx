@@ -1,0 +1,22 @@
+<view class='item-content split'>
+  <view class='item-left'>旧登录密码</view>
+  <view class='item-right'>
+    <input type='password' maxlength='15' bindinput="fillOldPwd"></input>
+  </view>
+</view>
+<view class='item-content'>
+  <view class='item-left'>新登录密码</view>
+  <view class='item-right'>
+    <input type='password' maxlength='15' bindinput="fillPwd"></input>
+  </view>
+</view>
+<view class='item-content'>
+  <view class='item-left'>重复新密码</view>
+  <view class='item-right'>
+    <input type='password' maxlength='15' bindinput="fillPwd2"></input>
+  </view>
+</view>
+
+<view class='btn-content'>
+  <button type="primary" class='btn-primary' bindtap='save'>提交</button>
+</view>

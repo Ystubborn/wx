@@ -1,0 +1,71 @@
+<view class='top-content'>
+  <image src="../../../images/my/bg.png"></image>
+  <view class='center-content' bindtap='goPerson'>
+    <view class='header'>
+      <image src='{{fimageurl?fimageurl:"../../../images/my/photo.png"}}'></image>
+    </view>
+    <view class='person'>
+      <view class='name'>{{fname}}</view>
+      <view class='desc'>{{fphone}}</view>
+    </view>
+    <view class='pull-right iconfont icon-youjiantou '></view>
+  </view>
+  <view class='bottom-content '>
+    <view class='content-item'>
+      <text>{{fscore}}</text>
+      <text>积分</text>
+    </view>
+    <view class='content-item' bindtap="goCoupon">
+      <text>{{fcouponscount}}张</text>
+      <text>现金券</text>
+    </view>
+    <view class='content-item'  bindtap='goWallet'>
+      <text>{{fbalance}}</text>
+      <text>余额</text>
+    </view>
+  </view>
+</view>
+
+<view class='fun-content'>
+  <view class='fun-item' bindtap='goWallet'>
+    <view class='item1'>
+      <image src='../../../images/my/fun1.png'></image>
+    </view>
+    <view class='item2'>我的钱包</view>
+    <view class='item3'>
+      <button type='primary' catchtap='goRecharge'>充值</button>
+      <icon class='iconfont icon-youjiantou'></icon>
+    </view>
+  </view>
+  <view class='fun-item' bindtap='goWalletList'>
+    <view class='item1'>
+      <image src='../../../images/my/fun2.png'></image>
+    </view>
+    <view class='item2'>交易明细</view>
+    <view class='item3'><icon class='iconfont icon-youjiantou'></icon></view>
+  </view>
+  <view class='fun-item' bindtap='goCoupon'>
+    <view class='item1'>
+      <image src='../../../images/my/fun3.png'></image>
+    </view>
+    <view class='item2'>现金券</view>
+    <view class='item3'><icon class='iconfont icon-youjiantou'></icon></view>
+  </view>
+</view>
+
+<view class='fun-content'>
+  <view class='fun-item' bindtap='goCenter'>
+    <view class='item1'>
+      <image src='../../../images/my/fun4.png'></image>
+    </view>
+    <view class='item2'>师傅中心</view>
+    <view class='item3'><icon class='iconfont icon-youjiantou'></icon></view>
+  </view>
+  <view class='fun-item' bindtap='goHelp'>
+    <view class='item1'>
+      <image src='../../../images/my/fun5.png'></image>
+    </view>
+    <view class='item2'>帮助中心</view>
+    <view class='item3'><icon class='iconfont icon-youjiantou'></icon></view>
+  </view>
+</view>

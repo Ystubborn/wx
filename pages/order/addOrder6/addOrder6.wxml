@@ -1,0 +1,128 @@
+<view class='item-content'>
+  <view class='title-content'>
+    <view class='title-info'>客户信息</view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>联系人 :</view>
+    <view class='fun-center'>
+      <input placeholder='姓名' bindinput='fillfname' value='{{fname}}'></input>
+    </view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'> </view>
+    <view class='fun-center'>
+      <radio-group name="radio" bindchange="bindRadioChange">
+        <label>
+          <radio value="1" checked="{{sex==1?'checked':''}}" color="#3696ED" />先生</label>
+        <label style='margin-left:50rpx;'>
+          <radio value="0" checked="{{sex==0?'checked':''}}" color="#3696ED" />女士</label>
+      </radio-group>
+    </view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>联系电话 :</view>
+    <view class='fun-center'>
+      <input placeholder='请填写手机号'  maxlength='11' type='number' bindinput='fillfphone' value='{{fphone}}'></input>
+    </view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>服务地区 :</view>
+    <view class='fun-center'>
+      <picker mode="multiSelector" bindcolumnchange="bindMultiRegionChange"  range="{{regionArray}}" range-key="name" value="{{region}}">
+        <view class="picker"> 
+          {{regionName[0]}}，{{regionName[1]}}，{{regionName[2]}}
+        </view>
+      </picker>
+    </view>
+    <view class='fun-right iconfont icon-youjiantou'></view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>详细地址 :</view>
+    <view class='fun-center'>
+      <input placeholder='请填写街道门牌信息' bindinput='fillfcusaddress' value='{{fcusaddress}}'></input>
+    </view>
+  </view>
+</view>
+
+
+<view class='item-content'>
+  <view class='title-content'>
+    <view class='title-info'>其他要求</view>
+  </view>
+  <view class='title-info'> </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>是否到货 :</view>
+    <view class='fun-center'>
+      <picker bindchange="bindArrivalPickerChange" value="{{arrivalIndex}}" range-key="{{'name'}}" range="{{arrivalList}}">
+        <view class="picker">
+          {{arrivalList[arrivalIndex].name}}
+        </view>
+      </picker>
+    </view>
+    <view class='fun-right iconfont icon-youjiantou'></view>
+  </view>
+  <view class='fun-bar' wx:if="{{ arrivalIndex == 0}}">
+    <view class='fun-left'>
+      <text>*</text>预计时间 :</view>
+    <view class='fun-center'>
+      <picker bindchange="bindDateChange" value="{{date}}" mode="date">
+        <view class="picker">
+          {{date}}
+        </view>
+      </picker>
+    </view>
+    <view class='fun-right iconfont icon-youjiantou'></view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      备注 :</view>
+    <view class='fun-center'>
+      <textarea maxlength='100' bindinput='changeRemark' data-pid="{{itemid}}" value='{{remark}}' placeholder="请详细说明安装注意的细节，比如需要带齐的工具，安装工艺要求等情况，以免师傅准备不足耽误安装进度。"></textarea>
+    </view>
+    <view class='fun-bottom'>{{remarkNum}}/100</view>
+  </view>
+  <view class='record-content' style='display:none;'>
+    <view class='record-btn record_no {{recording==false ? "":"selected"}}' bindtouchstart='startRecord' bindtouchend='stopRecord' wx:if="{{hasRecord==false}}">
+      <text class='iconfont icon-luyin'></text>
+      <text wx:if="{{recording==false}}">长按录音，给师傅捎句话</text>
+      <text wx:if="{{recording==true}}">录音中: {{formatedRecordTime}}</text>
+    </view>
+    <view class='record-btn record_yew {{playing==false ? "":"selected"}}' bindtap='playVoice' wx:if="{{hasRecord==true}}">
+      <text class='iconfont icon-luyin'></text>
+      <text wx:if="{{playing==false}}">已录制，点击播放</text>
+      <text wx:if="{{playing==true}}">播放中: {{formatedPlayTime}}</text>
+    </view>
+    <image src='../../../images/order/delete.png' wx:if="{{hasRecord==true}}" bindtap='deleteRecord'></image>
+  </view>
+</view>
+
+<view class='item-content'>
+  <view class='title-content'>
+    <view class='title-info'>紧急联系</view>
+  </view>
+  <view class='tip'>
+    用于订单信息接收，安装这程遇到问题通过此号码联系您！
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'><text>*</text>紧急联系人 :</view>
+    <view class='fun-center'>
+      <input placeholder='姓名' bindinput='bindfurgentname' value='{{furgentname}}'></input>
+    </view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-left'><text>*</text>联系人电话 :</view>
+    <view class='fun-center'>
+      <input placeholder='联系人手机号码' maxlength='11' bindinput='bindfurgentphone' type='number' value='{{furgentphone}}'></input>
+    </view>
+  </view>
+</view>
+<view class="white-view">&nbsp;</view>
+<cover-view class='bottom-btn'>
+  <button type="primary" class='sub-left-btn' bindtap='goPre'>上一步</button>
+  <button type="primary" class='sub-right-btn' bindtap='addProduct'>立即下单</button>
+</cover-view>

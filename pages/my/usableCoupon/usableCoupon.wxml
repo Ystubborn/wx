@@ -1,0 +1,24 @@
+<view class="home-wrap">
+  <view class="topBtn" data-id='' data-name='请选择' bindtap="bindRadioChange">不使用代金券</view>
+  <view class='order-item' wx:for="{{items}}" wx:key="fentryid" data-id='{{item.fentryid}}' data-val='{{item.fcashamount}}' data-name='{{item.fname}}' bindtap="bindRadioChange">
+    <view class="center-content">
+      <view class="left {{currentId==0?'yes':'no'}} ">¥{{item.fcashamount}}</view>
+      <view class="center">
+        <view class="first">{{item.fname}}</view>
+        <view class="second">有效期：{{item.fenddate}}</view>
+      </view>
+      <radio-group name="radio">
+        <label>
+          <radio value="{{item.fentryid}}" checked="{{currentId==item.fentryid?'checked':''}}" color="#3696ED" />
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view wx:if="{{nomoredata}}" class='no-more-data'>
+    没有更多了!
+  </view>
+  <view wx:if="{{nodata}}" class='no-data'>
+    <image src="../../../images/order/noCoupon.png"></image>
+    <view>暂无可用现金券</view>
+  </view>
+</view>

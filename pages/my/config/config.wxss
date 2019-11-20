@@ -1,0 +1,87 @@
+.item-content{
+  background-color: #FFF;
+  padding: 20rpx 30rpx 20rpx 20rpx; 
+  line-height: 80rpx; 
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #f1f1f1;
+}
+.item-content.split{ 
+  margin-bottom: 20rpx;
+}
+.item-content .item-left{ 
+  width: 60%;
+  color: #333;
+  font-size: 16px;
+}
+
+.item-content .item-left image{
+  width: 90rpx;
+  height: 90rpx; 
+  vertical-align: middle;
+  border-radius: 50%;
+  border: 1px solid #f1f1f1;
+}
+.item-content .item-right{
+  text-align:right;
+  width: 40%;
+}
+.item-content .item-right icon{ 
+  float: right;
+  font-size: 22px;
+}
+
+
+.fun-content{
+  margin-top: 25rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.fun-content .fun-item{
+   height: 80rpx;
+   padding: 20rpx;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   background-color: #FFF;
+   margin-bottom: 2rpx;
+}
+.fun-content .fun-item .item1 {
+  width: 15%;
+  line-height: 80rpx;
+}
+.fun-content .fun-item .item1  image{
+  width:30px;
+  height:30px;
+  margin: 10rpx 20rpx;
+}
+.fun-content .fun-item .item2{
+  font-size: 16px;
+  width:60%; 
+  line-height: 80rpx;
+}
+
+.fun-content .fun-item .item3{
+  width:32%; 
+  line-height: 80rpx;
+}
+.fun-content .fun-item .item3 button{ 
+  background-color: #ED7612;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 15px;
+  width: 85px; 
+  float: left;
+}
+.fun-content .fun-item .item3 icon{ 
+  float: right;
+  font-size:20px; 
+}
+ 
+.btn-content {
+  position: fixed;
+  bottom: 30px;
+  left: 20px;
+  right: 20px;  
+}

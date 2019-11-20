@@ -1,0 +1,141 @@
+<view wx:if="{{ready}}">
+  <view class="top-content">
+    <view class="first">
+      <image src="../../../images/order/problem.png"></image>
+    </view>
+    <view class="second" wx:if="{{data.fhandlestatus.id=='handle_sta004'}}">已完成</view>
+    <view class="second" wx:if="{{data.fhandlestatus.id=='handle_sta003'}}">已取消</view>
+    <view class="second" wx:if="{{data.fhandlestatus.id=='handle_sta002' && data.ffeeder.id == '' }}">待师傅处理</view>
+    <view class="second" wx:if="{{data.fhandlestatus.id=='handle_sta002' && data.ffeeder.id  != ''}}">待商户处理</view>
+  </view>
+
+  <view class='center-content' wx:if="{{data.freplycontent.length>0}}">
+    <view class='center-item'>
+      <view class='item-top' bindtap="showShxx">商户处理信息
+        <icon class="iconfont {{showShxxFlag?'icon-jiantou8':'icon-youjiantou'}}"></icon>
+      </view>
+      <view class='item-detail' wx:if="{{showShxxFlag}}">
+        <view class="split-no">
+          <view class="img-view" wx:if="{{item.freplyimage.freplyimageurl.length>0}}">
+            <view class="img-info">
+              <text class="left-info">回复图片</text>
+            </view>
+            <view class="img-list">
+              <image wx:for="{{item.freplyimage.freplyimageurl}}" bindtap="showImg" data-imgs="{{item.freplyimage.freplyimageurl}}" wx:for-item="img" src="{{img}}"></image>
+            </view>
+          </view>
+          <view class="custom">
+            <text class="left">回复时间：</text>
+            <text class="right">{{data.fmodifydate}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">回复内容：</text>
+            <text class="right">{{data.freplycontent}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='center-content'>
+    <view class='center-item'>
+      <view class='item-top' bindtap="showWtdxx">问题单详情
+        <icon class="iconfont {{showWtdxxFlag?'icon-jiantou8':'icon-youjiantou'}}"></icon>
+      </view>
+      <view class='item-detail' wx:if="{{showWtdxxFlag}}">
+        <view class="split-no">
+          <view class="img-view" wx:if="{{data.fprograph.url.length>0}}">
+            <view class="img-info">
+              <text class="left-info">问题图片</text>
+            </view>
+            <view class="img-list">
+              <image wx:for="{{data.fprograph.url}}" wx:key="index" bindtap="showImg" data-imgs="{{data.fprograph.url}}" wx:for-item="img" src="{{img}}"></image>
+            </view>
+          </view>
+          <view class="custom">
+            <text class="left">问题类别:</text>
+            <text class="right">{{data.fsprotype.fenumitem}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">日　　期：</text>
+            <text class="right">{{data.ffeeddate}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">问题描述：</text>
+            <text class="right">{{data.fprodesript}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='center-content'>
+    <view class='center-item'>
+      <view class='item-top' bindtap="showDdxx">订单信息
+        <icon class="iconfont {{showDdxxFlag?'icon-jiantou8':'icon-youjiantou'}}"></icon>
+      </view>
+      <view class='item-detail' wx:if="{{showDdxxFlag}}">
+        <view class="split-no">
+          <view class="custom">
+            <text class="left">客户姓名：</text>
+            <text class="right">{{data.fname}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">联系电话：</text>
+            <text class="right" bindtap="callMobile" data-mobile="{{data.fphone}}">{{data.fphone}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">客户地址：</text>
+            <text class="right">{{data.faddress}}</text> </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='center-content'>
+    <view class='center-item'>
+      <view class='item-top' bindtap="showAzxx">安装信息
+        <icon class="iconfont {{showAzxxFlag?'icon-jiantou8':'icon-youjiantou'}}"></icon>
+      </view>
+      <view class='item-detail' wx:if="{{showAzxxFlag}}">
+        <view class="split-no">
+          <view class="custom">
+            <text class="left">安装日期：</text>
+            <text class="right">{{data.fcreatedate}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">安装师傅：</text>
+            <text class="right">{{data.fcreatorid.fname}}</text>
+          </view>
+          <view class="custom">
+            <text class="left">联系电话：</text>
+            <text class="right" bindtap="callMobile" data-mobile="{{data.fcreatorid.fnumber}}">{{data.fcreatorid.fnumber}}</text> </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="white-view" wx:if="{{data.fhandlestatus.id=='handle_sta002'}}">&nbsp;</view>
+<view class='bottom-btn' wx:if="{{data.fhandlestatus.id=='handle_sta002' && data.ffeeder.id  != ''}}">
+  <button type="primary" class='sub-right-btn' bindtap='acceptOrder'>受理</button>
+</view>
+<view class='bottom-btn' wx:if="{{data.fhandlestatus.id=='handle_sta002' && data.ffeeder.id  == ''}}"> 
+  <button type="primary" class='sub-right-btn' bindtap='showCancelOrder'>取消反馈</button>
+</view>
+<view class="mask" wx:if="{{cancelFlag}}">
+  <view class='maskContent'>
+    <view class='title'>
+      操作提示
+      <icon class='iconfont icon-iconfontguanbi ruleHide' bindtap='hideCancelOrder'></icon>
+    </view>
+    <view class='center'>
+      <view class="result-view">
+        <image src="../../../images/order/feedback.png"></image>
+        <view>取消申请反馈后，本次申请将关闭您还可以再次发起,确定继续吗？</view>
+      </view>
+      <view class="btn-view"> 
+        <button type="primary" class='sub-left-btn' bindtap='hideCancelOrder'>取消</button>
+        <button type="primary" class='sub-right-btn' bindtap='cancelOrder'>确定</button>
+      </view>
+    </view>
+  </view>
+</view>

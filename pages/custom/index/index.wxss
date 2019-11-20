@@ -1,0 +1,26 @@
+@import './animate.wxss';
+@import '../../../style/custom.wxss';
+page {
+  height: 100%;
+} 
+.content .img2 {
+  width: 700rpx;
+  float: left;
+  margin: 0 25rpx;
+}
+
+.content .center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  float: left;
+  width: 100%;
+  padding: 30rpx 0;
+}
+
+.content .center image {
+  width: 50rpx; 
+}
+.content .btn-content{
+  padding: 0 200rpx 50rpx;
+}

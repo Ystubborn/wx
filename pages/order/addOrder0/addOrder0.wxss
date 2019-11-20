@@ -1,0 +1,74 @@
+page {
+  background-color: #fff;
+}
+.white-view{
+  color: #FFF;
+}
+.title-content {
+  padding: 70rpx 0 20rpx;
+}
+
+.title-content .title-item {
+  width: 200rpx;
+  height: 50rpx;
+  position: relative;
+  margin: 0 auto;
+}
+
+.title-content .title-item image {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+}
+
+.title-content .title-item .title-info {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.fun-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  margin-bottom: 40rpx;
+}
+
+.fun-content .fun-item {
+  width: 80rpx;
+  font-size: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fun-content .fun-item image {
+  margin: 0 auto;
+}
+
+.fun-content .fun-item2 {
+  width: 40rpx;
+}
+
+.detail {
+  padding: 0 30rpx;
+  font-size: 15px;
+  color: #333;
+}
+
+.detail .red {
+  color: #d22f1c;
+}
+
+.btn-content {
+  margin-top: 50rpx;
+  padding: 40rpx;
+}

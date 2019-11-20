@@ -1,0 +1,41 @@
+<view class="home-wrap">
+  <view class="track-input-block">
+    <icon type="search" size="15" color="gray" />
+    <input class="track-input" placeholder="搜索" bindconfirm="search" bindinput="fillKeyword" confirm-type="search" />
+  </view>
+  <!-- 导航 -->
+  <scroll-view class="top_nav" scroll-x="true" bindscroll="scroll" scroll-into-view="{{currentId>4?'S_'+currentId:''}}" scroll-with-animation="true">
+    <view class="nav-name {{item.typeId == currentId ? 'nav-hover':''}}" wx:for="{{section}}" wx:key="id" id="{{'S_'+item.typeId}}" data-id='{{item.typeId}}' catchtap='handleTap'><label>{{item.name}}</label></view>
+  </scroll-view>
+
+  <view class='order-item'  wx:for="{{items}}" wx:key="id" bindtap='goOrderDetail' data-id='{{item.fbillhead_id}}' >
+    <view class='order-item-top'>
+      <view class='item-top-left'>
+       订单编号: {{item.fbillno}}
+      </view>
+      <view class='item-top-right'>{{item.status}}</view>
+    </view>
+    <view class='order-item-center'>
+      <view class='item-center-left' catchtap='showImg' data-imgs='{{item.fimages}}'>
+        <image src='{{item.fimages[0]}}'></image>
+        <text>{{item.fimages.length}}</text>
+      </view>
+      <view class='item-center-center'>
+        <view class='item-cente-first'>{{item.fservicetype_fenumitem}} | {{item.fprofield_txt}}</view>
+        <view class='item-cente-second'>{{item.fname}} {{item.fphone}}</view>
+        <view class='item-cente-thrid'>{{item.fcusaddress}}</view>
+      </view>
+    </view>
+    <view class='order-item-bottom'>
+      <view class='item-bottom-left'>发布时间：{{item.ffeeddate}}</view> 
+      <view class='item-bottom-right'>附加费金额：{{item.famount}}元</view>
+    </view>
+  </view> 
+  <view wx:if="{{nomoredata}}" class='no-more-data'>
+    没有更多了!
+  </view>
+  <view wx:if="{{nodata}}" class='no-data'>
+    <image src="../../../images/order/noOrder.png"></image>
+    <view>暂无订单</view>
+  </view>
+</view>

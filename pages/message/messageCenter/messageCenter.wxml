@@ -1,0 +1,38 @@
+<view class='top-content'>
+  <view class='top-item' bindtap="goOnline">
+    <image src='../../../images/message/m1.png'></image>
+    <view>在线客服</view>
+  </view>
+  <view class='top-item' bindtap='goHelp'>
+    <image src='../../../images/message/m2.png'></image>
+    <view>帮助中心</view>
+  </view>
+  <view class='top-item' bindtap="callPhone">
+    <image src='../../../images/message/m3.png'></image>
+    <view>联系我们</view>
+  </view>
+</view>
+
+<view class='fun-content'>
+  <view class='fun-item' bindtap='goOrderMessage'>
+    <view class='item1'>
+      <image src='../../../images/message/fun1.png'></image>
+    </view>
+    <view class='item2'>订单消息</view>
+    <view class='item3 iconfont icon-youjiantou'></view>
+  </view>
+  <view class='fun-item' bindtap='goMoneyMessage'>
+    <view class='item1'>
+      <image src='../../../images/message/fun2.png'></image>
+    </view>
+    <view class='item2'>钱包消息</view>
+    <view class='item3 iconfont icon-youjiantou'></view>
+  </view>
+  <view class='fun-item' bindtap='goSystemMessage'>
+    <view class='item1'>
+      <image src='../../../images/message/fun3.png'></image>
+    </view>
+    <view class='item2'>系统消息</view>
+    <view class='item3 iconfont icon-youjiantou'></view>
+  </view>
+</view>

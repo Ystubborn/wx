@@ -1,0 +1,10 @@
+<view class="content">
+  <image src="../../../images/custom/bg.png" mode="widthFix" class="img1"></image>
+  <image src="../../../images/custom/prop.png" mode="widthFix" class="img2"></image>
+  <view class="center">
+    <image src="../../../images/custom/down.png" mode="widthFix" class="img3 {{aminate}}"></image>
+  </view> 
+  <view class='btn-content'>
+   <button type="primary" class='btn-primary'  bindtap='goAddOrder'>去注册下单</button>
+  </view>
+</view> 

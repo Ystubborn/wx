@@ -1,0 +1,43 @@
+<view class="home-wrap">
+  <view class="track-input-block">
+    <icon type="search" size="15" color="gray" />
+    <input class="track-input" placeholder="搜索你想要的内容..." bindinput="fillkeyword" bindconfirm="search" confirm-type="search" />
+  </view>
+
+  <view class="workbench">
+    <view class="list">
+      <view class="items" bindtap='goQuestion' data-type='{{item.id}}' data-title='{{item.name}}' wx:for="{{items}}" wx:index="index" wx:key="id">
+        <image src="{{index<6?icons[index]:icons[5]}}"></image>
+        <text class='title'>{{item.name}}</text> 
+      </view> 
+      <view class="items" bindtap='goFeedback'>
+        <image src="../../../images/my/help/p7.png"></image>
+        <text class='title'>问题反馈</text> 
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='item-content'>
+  常见问题
+</view>
+<view class='fun-content'>
+  <view class='fun-item' bindtap='goQuestion' data-type='{{item.type}}' data-index="{{idx}}"  wx:for-index="idx" data-title='{{item.category}}' wx:for="{{helps}}">
+    <view class='item1'>{{item.title}}</view>
+    <view class='item2'>
+      <icon class='iconfont icon-youjiantou'></icon>
+    </view>
+  </view> 
+</view>
+
+<view class='top-content'>
+  <view class='top-item' bindtap="goOnline">
+    <image src='../../../images/message/m1.png'></image>
+    <view>在线客服</view>
+  </view>
+  <view class='split'></view>
+  <view class='top-item' bindtap="callPhone">
+    <image src='../../../images/message/m3.png'></image>
+    <view>联系我们</view>
+  </view>
+</view>

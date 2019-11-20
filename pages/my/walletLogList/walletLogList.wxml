@@ -1,0 +1,91 @@
+<view class="mask" wx:if="{{search}}"></view>
+<view class="searchBar">
+  <view class="firstBar">
+    <view class="left">
+      <picker mode="date" value="{{startDate}}" start="2019-01-01" end="{{endDate}}" bindchange="bindStartDateChange">
+        <view class="picker">
+          {{startDate}}
+        </view>
+      </picker>
+      <text class="split">至</text>
+      <picker mode="date" value="{{endDate}}" start="{{startDate}}" end="{{limitDate}}" bindchange="bindEndDateChange">
+        <view class="picker">
+          {{endDate}}
+        </view>
+      </picker>
+    </view>
+    <view class="right" bindtap="showSearchDetail">
+      <text>筛选</text>
+      <icon class="iconfont icon-xiajiantou"></icon>
+    </view>
+  </view>
+  <view class="secondBar" wx:if="{{search}}">
+    <view class="{{type==''?'selected':''}}" bindtap="selectType" data-type="">全部</view>
+    <view class="{{type=='bizpurpose_02'?'selected':''}}" bindtap="selectType" data-type="bizpurpose_02">订单支付</view>
+    <view class="{{type=='bizpurpose_09'?'selected':''}}" bindtap="selectType" data-type="bizpurpose_09">补价支付</view>
+    <view class="{{type=='bizpurpose_01'?'selected':''}}" bindtap="selectType" data-type="bizpurpose_01">充值</view>
+    <!-- <view class="{{type=='bizpurpose_03'?'selected':''}}" bindtap="selectType" data-type="bizpurpose_03">其他扣款</view> -->
+    <view class="{{type=='bizpurpose_06'?'selected':''}}" bindtap="selectType" data-type="bizpurpose_06">退款</view>
+    <!-- <view class="{{type=='bizpurpose_08'?'selected':''}}" bindtap="selectType" data-type="bizpurpose_08">账户转账</view> -->
+    <view class="{{type=='bizpurpose_10'?'selected':''}}" bindtap="selectType" data-type="bizpurpose_10">赔付收入</view>
+    <!-- <view class="{{type=='bizpurpose_11'?'selected':''}}" bindtap="selectType" data-type="bizpurpose_11">附加费</view> -->
+    <!-- <view class="{{type=='bizpurpose_12'?'selected':''}}" bindtap="selectType" data-type="bizpurpose_12">师傅打赏</view> -->
+    <!-- <view class="{{type=='bizpurpose_13'?'selected':''}}" bindtap="selectType" data-type="bizpurpose_13">月结支付</view> -->
+    <!-- <view class="{{type=='bizpurpose_14'?'selected':''}}" bindtap="selectType" data-type="bizpurpose_14">提现</view>  -->
+  </view>
+</view>
+<view class="items">
+  <view class="tongji">
+    <view class="type" wx:for="{{groupbyDataList}}" wx:key="fpurpose">
+      <view class="name" wx:if="{{item.fpurpose=='bizpurpose_02'}}">支出(元)</view>
+      <view class="name" wx:if="{{item.fpurpose=='bizpurpose_06'}}">收入(元)</view>
+      <view class="name" wx:if="{{item.fpurpose=='bizpurpose_10'}}">赔付收入(元)</view>
+      <view class="val">{{item.fvalue}}</view>
+    </view>
+  </view>
+  <view class="item" wx:for="{{items}}" bindtap="goDetail" data-id="{{item.fid}}">
+    <view class="left">
+      <text wx:if="{{item.fpurpose =='bizpurpose_01'}}" style="background-color:#FEC905;">充</text>
+      <text wx:if="{{item.fpurpose =='bizpurpose_02'}}" style="background-color:#FFA152">单</text>
+      <text wx:if="{{item.fpurpose =='bizpurpose_03'}}" style="background-color:#FEC905">他</text>
+      <text wx:if="{{item.fpurpose =='bizpurpose_06'}}" style="background-color:#40C143">退</text>
+      <text wx:if="{{item.fpurpose =='bizpurpose_08'}}" style="background-color:#8B7500">转</text>
+      <text wx:if="{{item.fpurpose =='bizpurpose_09'}}" style="background-color:#FF5252">补</text>
+      <text wx:if="{{item.fpurpose =='bizpurpose_10'}}" style="background-color:#3696ED">赔</text>
+      <text wx:if="{{item.fpurpose =='bizpurpose_11'}}" style="background-color:#FA8072">附</text>
+      <text wx:if="{{item.fpurpose =='bizpurpose_12'}}" style="background-color:#FF6EB4">赏</text>
+      <text wx:if="{{item.fpurpose =='bizpurpose_13'}}" style="background-color:#A0522D">月</text>
+      <text wx:if="{{item.fpurpose =='bizpurpose_14'}}" style="background-color:#FF5252">提</text>
+    </view>
+    <view class="center">
+      <view class="first">
+        <block wx:if="{{item.fpurpose=='bizpurpose_01'}}">充值</block>
+        <block wx:if="{{item.fpurpose=='bizpurpose_02'}}">订单支付</block>
+        <block wx:if="{{item.fpurpose=='bizpurpose_03'}}">其他扣款</block>
+        <block wx:if="{{item.fpurpose=='bizpurpose_06'}}">退款</block>
+        <block wx:if="{{item.fpurpose=='bizpurpose_08'}}">账户转账</block>
+        <block wx:if="{{item.fpurpose=='bizpurpose_09'}}">补价支付</block>
+        <block wx:if="{{item.fpurpose=='bizpurpose_10'}}">赔付收入</block>
+        <block wx:if="{{item.fpurpose=='bizpurpose_11'}}">附加费</block>
+        <block wx:if="{{item.fpurpose=='bizpurpose_12'}}">师傅打赏</block>
+        <block wx:if="{{item.fpurpose=='bizpurpose_13'}}">月结支付</block>
+        <block wx:if="{{item.fpurpose=='bizpurpose_14'}}">提现</block>
+      </view>
+      <view class="second">{{item.fdate}}</view>
+    </view>
+    <view class="right">
+      <view class="status">{{item.fbizstatusname}}</view>
+      <view class="money">
+        <block wx:if="{{item.fdirection=='direction_01'}}">+</block>
+        <block wx:if="{{item.fdirection=='direction_02'}}">-</block>￥{{item.famount}}
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{nomoredata}}" class='no-more-data'>
+    没有更多了!
+  </view>
+  <view wx:if="{{nodata}}" class='no-data'>
+    <image src="../../../images/order/noTrade.png"></image>
+    <view>没有相关信息</view>
+  </view>
+</view>

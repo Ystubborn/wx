@@ -1,0 +1,70 @@
+<view class='title-content'>
+  <view class='title-item'>
+    <image src='../../../images/order/title.png'></image>
+    <view class='title-info'>订单流程</view>
+  </view>
+</view>
+<view class='fun-content'>
+  <view class='fun-item'>
+    <image src='../../../images/order/step1.png' style='width:36rpx;height:42rpx;'></image>
+    <view>发布需求</view>
+  </view>
+  <view class='fun-item2'>
+    <image src='../../../images/order/jt.png' style='width:36rpx;height:7rpx;'></image>
+    <view></view>
+  </view>
+  <view class='fun-item'>
+    <image src='../../../images/order/step2.png' style='width:42rpx;height:42rpx;'></image>
+    <view>多个师傅报价</view>
+  </view>
+  <view class='fun-item2'>
+    <image src='../../../images/order/jt.png' style='width:36rpx;height:7rpx;'></image>
+    <view></view>
+  </view>
+  <view class='fun-item'>
+    <image src='../../../images/order/step3.png' style='width:40rpx;height:42rpx;'></image>
+    <view>选择师傅</view>
+  </view>
+  <view class='fun-item2'>
+    <image src='../../../images/order/jt.png' style='width:36rpx;height:7rpx;'></image>
+    <view></view>
+  </view>
+  <view class='fun-item'>
+    <image src='../../../images/order/step4.png' style='width:46rpx;height:42rpx;'></image>
+    <view>托管费用</view>
+  </view>
+  <view class='fun-item2'>
+    <image src='../../../images/order/jt.png' style='width:36rpx;height:7rpx;'></image>
+    <view></view>
+  </view>
+  <view class='fun-item'>
+    <image src='../../../images/order/step5.png' style='width:40rpx;height:42rpx;'></image>
+    <view>上门服务</view>
+  </view>
+  <view class='fun-item2'>
+    <image src='../../../images/order/jt.png' style='width:36rpx;height:7rpx;'></image>
+    <view></view>
+  </view>
+  <view class='fun-item'>
+    <image src='../../../images/order/step6.png' style='width:43rpx;height:43rpx;'></image>
+    <view>完成验收并评价</view>
+  </view>
+</view>
+
+<view class='title-content'>
+  <view class='title-item'>
+    <image src='../../../images/order/title.png'></image>
+    <view class='title-info'>注意事项</view>
+  </view>
+</view>
+
+<view class='detail'>
+  <text>1、订单发布后，请关注【左右手安装】公众号，及时接收师傅报价信息，并选择师傅并托管费用，师傅才能上门服务。</text>
+  <text>\n2、服务中遇到超出订单以外的安装费用请及时支付，以免引影响安装进度。</text>
+  <text class='red'>\n说明：平台不收取任何费用，并且提供担保服务。</text>
+</view>
+
+<view class='btn-content'>
+  <button type="primary" class='btn-primary' bindtap='goAddOrder'>去下单</button>
+</view>
+<view class="white-view">&nbsp;</view>

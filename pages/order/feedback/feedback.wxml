@@ -1,0 +1,59 @@
+<view class='item-content'>
+  <view class='fun-bar'>
+    <view class='fun-left'>
+      <text>*</text>问题类型</view>
+    <view class='fun-center'>
+      <picker bindchange="bindPickerChange" value="{{selectIndex}}" range-key="{{'fenumitem'}}" range="{{items}}">
+        <view class="picker">
+          {{items[selectIndex].fenumitem}}
+        </view>
+      </picker>
+    </view>
+    <view class='fun-right iconfont icon-youjiantou'></view>
+  </view>
+  <view class='fun-bar'>
+    <view class='fun-top'>
+      <text>*</text>问题描述</view>
+    <view class='fun-bottom'>
+      <textarea maxlength='100'  wx:if="{{!feedbackResultFlag}}" bindinput='fillRemark' placeholder-class="placeholder" placeholder="请输入你的问题..."></textarea>
+      <text wx:if="{{feedbackResultFlag}}" >{{remark}}</text>
+    </view>
+  </view>
+</view>
+<view class="item-content">
+  <view class='fun-bar'>
+    <view class='fun-top'>问题图片</view>
+    <view class='fun-bottom'>
+      <view class='img-list'>
+        <view class='img-item'>
+          <image src='../../../images/order/upload.png' class='addImage' bindtap='chooseImg'></image>
+        </view>
+        <view class='img-item' wx:for="{{imgList}}" wx:for-item="img" wx:for-index="imgid" wx:key="{{imgid}}">
+          <image src='{{img}}' class='image' bindtap='showImg' data-id="{{imgid}}"></image>
+          <image src='../../../images/order/delete.png' class='close' bindtap='deleteImg' data-id="{{imgid}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='btn-content'>
+  <button type="primary" class='btn-primary' bindtap='save'>提交反馈</button>
+</view>
+
+<view class="mask" wx:if="{{feedbackResultFlag}}">
+  <view class='maskContent'>
+    <view class='title'>
+      反馈成功
+      <icon class='iconfont icon-iconfontguanbi ruleHide' bindtap='hideFeedbackResult'></icon>
+    </view>
+    <view class='center'>
+      <view class="result-view">
+        <image src="../../../images/order/feedback.png"></image>
+        <view>请耐心等待师傅处理</view>
+      </view>
+      <view class="btn-view">
+        <button type="primary" class='sub-right-btn' bindtap='showDetail'>查看详情</button>
+      </view>
+    </view>
+  </view>
+</view>

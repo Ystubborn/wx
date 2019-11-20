@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "现金券",
+  "usingComponents": {},
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50
+}
